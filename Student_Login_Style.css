@@ -38,6 +38,7 @@ label{
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
+	margin-bottom: -10px;
 }
 input{
 	width: 60%;
@@ -82,7 +83,7 @@ button:hover{
 }
 
 #chk:checked ~ .signup{
-	transform: translateY(-500px);
+	transform: translateY(-515px);
 }
 #chk:checked ~ .signup label{
 	transform: scale(1);	
