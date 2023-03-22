@@ -1,0 +1,55 @@
+/* styling for the select wrapper */
+.select-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  
+  margin-top: 50px;
+  /* margin-left: 500px; */
+  align-content: center;
+  position: relative;
+}
+
+/* styling for the select element */
+#hoverable-select {
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  width: 200px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+/* styling for the option elements */
+#hoverable-select option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* styling for the button */
+.myButton {
+  background-color: #4CAF50;
+  color: #000000;
+  padding: 5px 20px;
+  margin-left: 10px;
+  margin-bottom: 15px ;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.myButton:hover {
+	background-color: #4CAF50;
+	color: rgb(255, 255, 255);
+  
+}
+
+
+
+
