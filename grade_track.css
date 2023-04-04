@@ -1,191 +1,229 @@
-
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
-body {
-  font-family: "Open Sans", sans-serif;
-  background-color: rgb(45,45,95);
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+/* CORE STYLES */
+:root {
+  --primary-color: rgba(13, 110, 139, 0.75);
+  --overlay-color: rgba(24, 39, 51, 0.85);
+  --menu-speed: 0.75s;
 }
 
-.card {
-  background-color: #ffffff;
-  width: 100%;
-  max-width: 100%;
-  max-height: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.4;
+  color: white;
+  background-color: #4a92a8;
+}
+
+.container {
+  width: 60%;
+  margin-left: 20%;
+  overflow: hidden;
+  padding: 0 3rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 2rem 0;
+}
+
+.showcase {
+  background: var(--primary-color);
+  color: #fff;
+  height: 100vh;
+  position: relative;
+}
+
+.showcase .showcase-inner {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-}
-
-.table-concept {
-  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   height: 100%;
-  max-height: 100%;
-  overflow: auto;
-  box-sizing: border-box;
 }
-.table-concept .table-radio {
-  display: none;
+
+.showcase h1 {
+  font-size: 4rem;
 }
-.table-concept .table-radio:checked + .table-display {
-  display: block;
+
+.showcase p {
+  font-size: 1.3rem;
 }
-.table-concept .table-radio:checked + .table-display + table {
-  width: 100%;
-  display: table;
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  transition: opacity 1s ease-in-out;
+  text-decoration: none;
+  margin: 1rem;
+  font-size: 1.25rem;
 }
-.table-concept .table-radio:checked + .table-display + table + .pagination {
-  display: flex;
+
+.btn:hover {
+  opacity: 0.7;
 }
-.table-concept .table-radio:checked + .table-display + table + .pagination > label.active {
-  color: #ffffff;
-  background-color: dimgray;
-  cursor: default;
-}
-.table-concept .table-radio:checked + .table-display + table + .pagination > label.disabled {
-  color: #ffffff;
-  background-color: #b5b5b5;
-  cursor: default;
-}
-.table-concept .table-display {
-  background-color: #e2e2e2;
-  text-align: right;
-  padding: 10px;
-  display: none;
-  position: sticky;
-  left: 0;
-}
-.table-concept table {
-  background-color: #ffffff;
-  font-size: 16px;
-  border-collapse: collapse;
-  display: none;
-}
-.table-concept table tr:last-child td {
-  border-bottom: 0;
-}
-.table-concept table tr th,
-.table-concept table tr td {
-  text-align: left;
-  padding: 15px;
-  box-sizing: border-box;
-}
-.table-concept table tr th {
-  color: #ffffff;
-  font-weight: normal;
-  background-color: #8f8f8f;
-  border-bottom: solid 2px #d8d8d8;
-  position: sticky;
+
+/* MENU STYLES */
+.menu-wrap {
+  position: fixed;
   top: 0;
-}
-.table-concept table tr td {
-  border: solid 1px #d8d8d8;
-  border-left: 0;
-  border-right: 0;
-  white-space: nowrap;
-}
-.table-concept table tbody tr {
-  transition: background-color 150ms ease-out;
-}
-.table-concept table tbody tr:nth-child(2n) {
-  background-color: whitesmoke;
-}
-.table-concept table tbody tr:hover {
-  background-color: #ebebeb;
-}
-.table-concept .pagination {
-  background-color: #8f8f8f;
-  width: 100%;
-  display: none;
-  position: sticky;
-  bottom: 0;
   left: 0;
+  z-index: 1;
 }
-.table-concept .pagination > label {
-  background-color: #8f8f8f;
-  color: #ffffff;
-  padding: 10px;
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
   cursor: pointer;
-}
-.table-concept .pagination > label:hover {
-  background-color: darkgray;
-}
-.table-concept .pagination > label:active {
-  background-color: #767676;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
 }
 
-.table-title {
-  color: #ffffff;
-  background-color: #2f2f2f;
-  padding: 15px;
-}
-.table-title h2 {
-  margin: 0;
-  padding: 0;
-}
-
-.button-container {
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: flex-end;
-}
-.button-container span {
-  color: #8f8f8f;
-  text-align: right;
-  min-height: 100%;
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  background: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 10px;
-  margin-right: 10px;
 }
-.button-container button {
-  font-family: inherit;
-  font-size: inherit;
-  color: #ffffff;
-  padding: 10px 15px;
-  border: 0;
-  margin: 0;
-  outline: 0;
-  border-radius: 0;
-  transition: background-color 225ms ease-out;
+
+/* Hamburger Line */
+.menu-wrap .hamburger > div {
+  position: relative;
+  flex: none;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
 }
-.button-container button.primary {
-  background-color: #147eff;
+
+/* Hamburger Lines - Top & Bottom */
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
 }
-.button-container button.primary:hover {
-  background-color: #479aff;
+
+/* Moves Line Down */
+.menu-wrap .hamburger > div::after {
+  top: 10px;
 }
-.button-container button.primary:active {
-  background-color: #0065e0;
+
+/* Toggler Animation */
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
 }
-.button-container button.primary {
-  background-color: #147eff;
+
+/* Turns Lines Into X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
 }
-.button-container button.primary:hover {
-  background-color: #479aff;
+
+/* Rotate On Hover When Checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
 }
-.button-container button.primary:active {
-  background-color: #0065e0;
+
+/* Show Menu */
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
 }
-.button-container button.danger {
-  background-color: #d11800;
+
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: var(--menu-speed);
 }
-.button-container button.danger:hover {
-  background-color: #ff2205;
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.4s;
 }
-.button-container button.danger:active {
-  background-color: #9e1200;
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.button-container button svg {
-  fill: #ffffff;
-  vertical-align: middle;
-  padding: 0;
-  margin: 0;
+
+.menu-wrap .menu > div {
+  background: var(--overlay-color);
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+table,
+th,
+td {
+  padding: 4px;
+  font-size: 1.5rem;
+  border: 2px solid rgb(255, 255, 255);
+  
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table {
+  width: 100%;
 }
