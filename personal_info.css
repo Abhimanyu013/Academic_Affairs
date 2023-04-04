@@ -17,10 +17,8 @@
     color: white;
     background-color: #4a92a8;
 
-    background: #b485c6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #4a92a8, #44133e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    padding: 0;
+    --primary-color: rgba(13, 110, 139, 0.75);
+    --overlay-color: rgba(24, 39, 51 , 0.85); 
     margin: 0;
     font-family: 'Lato', sans-serif;
     color: #000;
