@@ -6,7 +6,7 @@ body{
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background:  rgba(13, 110, 139, 0.75);;
+	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
 }
 .main{
 	width: 350px;
@@ -24,7 +24,7 @@ body{
 	
 
 	height: 460px;
-	background: #ffffff;
+	background: #eee;
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
 	transition: .8s ease-in-out;
@@ -38,12 +38,11 @@ label{
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
-	margin-bottom: -10px;
 }
 input{
 	width: 60%;
 	height: 20px;
-	background: #ffffff;
+	background: #e0dede;
 	justify-content: center;
 	display: flex;
 	margin: 20px auto;
@@ -58,8 +57,8 @@ button{
 	margin: 10px auto;
 	justify-content: center;
 	display: block;
-	color:  rgba(13, 110, 139, 0.75);;
-	background: #ffffff;
+	color: #fff;
+	background: #573b8a;
 	font-size: 1em;
 	font-weight: bold;
 	margin-top: 20px;
@@ -70,7 +69,7 @@ button{
 	cursor: pointer;
 }
 button:hover{
-	background:  rgba(13, 110, 139, 0.75);;
+	background: #6d44b8;
 }
 .login{
 	position: relative;
@@ -78,12 +77,12 @@ button:hover{
 	height: 100%;
 }
 .signup label{
-	color:  rgba(13, 110, 139, 0.75);;
+	color: #573b8a;
 	transform: scale(.6);
 }
 
 #chk:checked ~ .signup{
-	transform: translateY(-515px);
+	transform: translateY(-500px);
 }
 #chk:checked ~ .signup label{
 	transform: scale(1);	
