@@ -1,58 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Academic Affairs System</title>
-	<link rel="stylesheet" href="style.css">
-</head>
-<body>
-	<header>
-		<div class="container">
-			<h1>Academic Affairs System</h1>
-			<nav>
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Feedback</a></li>
-					<li><a href="#">Resources</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<section id="banner">
-		<div class="container">
-			<h2>Give Feedback and Access Resources</h2>
-			<p>Welcome to the Academic Affairs System. Here, students can provide feedback and faculty can share resources for students.</p>
-		</div>
-	</section>
-	<section id="feedback">
-		<div class="container">
-			<h3>Feedback Form</h3>
-			<form>
-				<label for="name">Name</label>
-				<input type="text" id="name" name="name" required>
-				<label for="email">Email</label>
-				<input type="email" id="email" name="email" required>
-				<label for="feedback">Feedback</label>
-				<textarea id="feedback" name="feedback" required></textarea>
-				<input type="submit" value="Submit Feedback">
-			</form>
-		</div>
-	</section>
-	<section id="resources">
-		<div class="container">
-			<h3>Resources for Students</h3>
-			<ul>
-				<li><a href="#">Class Schedule</a></li>
-				<li><a href="#">Course Syllabus</a></li>
-				<li><a href="#">Academic Calendar</a></li>
-				<li><a href="#">Study Materials</a></li>
-			</ul>
-		</div>
-	</section>
-	<footer>
-		<div class="container">
-			<p>&copy; 2023 Academic Affairs System. All rights reserved.</p>
-		</div>
-	</footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Feedback_Style.css" />
+    <title>Feedback</title>
+  </head>
+  <body>
+    <div class="menu-wrap">
+      <input type="checkbox" class="toggler" />
+      <div class="hamburger"><div></div></div>
+      <div class="menu">
+        <div>
+          <div>
+            <ul>
+              <li><a href="personal_info.html">Personal Details</a></li>
+							<li><a href="Student_Report.html">Course Reports</a></li>
+							<li><a href="grade_tracking.html">Grade Tracking</a></li>
+							<li><a href="Transcript.html">Transcript</a></li>
+							<li><a href="Attendence.html">Attendence</a></li>
+							<li><a href="receipt.html">Fees Receipts</a></li>
+							<li><a href="Feedback.html">Feedbacks</a></li>
+							<li><a href="select_subj.html">Resources</a></li>
+							<li><a href="Broadcast.html">Broadcasts</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="heading"> <h1>Feedback</h1> </div>
+    <div class="main-container">
+        <section id="feedback">
+            <div class="container">
+                <form>
+                    <div class="selector">
+                        <label id="labelh" for="Subject">Choose Subject</label>
+                        <select name="Subject" id="Subject">
+                            <option value="Subject 1">Subject 1</option>
+                            <option value="Subject 2">Subject 2</option>
+                            <option value="Subject 3">Subject 3</option>
+                            <option value="Subject 4">Subject 4</option>
+                            <option value="Subject 5">Subject 5</option>
+                            <option value="Subject 6">Subject 6</option>
+                            <option value="Subject 7">Subject 7</option>
+                            <option value="Subject 8">Subject 8</option>
+                        </select>
+                    </div>
+                    <div id="Feedback">
+                        <div id="Feedback_Label">
+                            <label for="feedback">Write your Feedback</label>
+                        </div>
+                        <div id="Feedback_Text"> 
+                            <textarea id="feedback" name="feedback" required></textarea>
+                        </div>
+                    </div>
+                    <div class="Feedback_Submit">
+                        <input type="submit" value="Submit Feedback">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+  </body>
 </html>

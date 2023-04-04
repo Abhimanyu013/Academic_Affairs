@@ -6,7 +6,7 @@ body{
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+	background:  rgba(13, 110, 139, 0.75);;
 }
 .main{
 	width: 350px;
@@ -24,7 +24,7 @@ body{
 	
 
 	height: 460px;
-	background: #eee;
+	background: #ffffff;
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
 	transition: .8s ease-in-out;
@@ -43,7 +43,7 @@ label{
 input{
 	width: 60%;
 	height: 20px;
-	background: #e0dede;
+	background: #ffffff;
 	justify-content: center;
 	display: flex;
 	margin: 20px auto;
@@ -58,8 +58,8 @@ button{
 	margin: 10px auto;
 	justify-content: center;
 	display: block;
-	color: #fff;
-	background: #573b8a;
+	color:  rgba(13, 110, 139, 0.75);;
+	background: #ffffff;
 	font-size: 1em;
 	font-weight: bold;
 	margin-top: 20px;
@@ -70,7 +70,7 @@ button{
 	cursor: pointer;
 }
 button:hover{
-	background: #6d44b8;
+	background:  rgba(13, 110, 139, 0.75);;
 }
 .login{
 	position: relative;
@@ -78,7 +78,7 @@ button:hover{
 	height: 100%;
 }
 .signup label{
-	color: #573b8a;
+	color:  rgba(13, 110, 139, 0.75);;
 	transform: scale(.6);
 }
 
