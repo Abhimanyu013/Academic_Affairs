@@ -46,7 +46,7 @@ input{
 	background: #ffffff;
 	justify-content: center;
 	display: flex;
-	margin: 20px auto;
+	margin: 10px auto;
 	padding: 10px;
 	border: none;
 	outline: none;
@@ -90,4 +90,12 @@ button:hover{
 }
 #chk:checked ~ .login label{
 	transform: scale(.6);
+}
+
+.home-btn{
+	margin-top: 2rem;
+}
+a {
+	text-decoration: none;
+	color: rgba(13, 110, 139, 0.75);
 }

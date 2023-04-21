@@ -57,3 +57,11 @@ button{
 	transition: .2s ease-in;
 	cursor: pointer;
 }
+
+.home-btn{
+	margin-top: 2rem;
+}
+a {
+	text-decoration: none;
+	color: rgba(13, 110, 139, 0.75);
+}
