@@ -21,7 +21,7 @@
     --overlay-color: rgba(24, 39, 51 , 0.85); 
     margin: 0;
     font-family: 'Lato', sans-serif;
-    color: #000;
+    color: #ffffff;
   }
   
   .container {
@@ -222,16 +222,18 @@
   table,
   th,
   td {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
     border: 1px solid black;
     border-collapse: collapse;
+    color: white;
     text-align: center;
   }
   
   table {
+    color: white;
+    text-align: left;
     width: 100%;
   }
-  
 
 
   button{
