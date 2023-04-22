@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/css/Admin_Broadcast.css" />
+		<title>Admin Broadcasts</title>
+	</head>
+	<body>
+		<div class="menu-wrap">
+			<input type="checkbox" class="toggler" />
+			<div class="hamburger"><div></div></div>
+			<div class="menu">
+				<div>
+					<div>
+						<ul>
+							<li><a href="select_batch.html">Student Information</a></li>
+							<li><a href="Faculty_Info.html">Faculty Information</a></li>
+							<li><a href="/Admin_Broadcasts">Broadcasts</a></li>
+							<li><a href="/MainLander">Log Out</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="title">Broadcasts</div>
+			<div class="course-table">
+				<table>
+					<th style="width: 70%">Broadcasts</th>
+					<th>Date of Broadcast</th>
+					<th>Time of Broadcast</th>
+					<% broadcast.forEach(function(broadcast) { %>
+						<tr></tr>
+					<td>
+						<%= broadcast.broadcasts %>
+					</td>
+					<% var options={ weekday: 'long' , year: 'numeric' , month: 'long' , day: 'numeric' }; %>
+                    <td><%= broadcast.date_Of_Broadcast.toLocaleDateString("en-US", options) %></td>
+					<td><%= broadcast.time_Of_Broadcast.toLocaleString('en-US', { hour: 'numeric', hour12: true }) %></td>
+					<tr></tr>
+				<%  }) %>
+				<tr></tr>
+				<form action="/Admin_Broadcasts" method="post">
+					<td>
+                        <div class="Broadcast_Text">
+						<input
+							id="Broadcast"
+							name="Broadcast"
+							placeholder="Enter your Broadcast"
+						></input>
+                        </div>
+					</td>
+					<td colspan="2">
+						
+						<button type="submit">Broadcast</button></a>
+					</td>
+				</form>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

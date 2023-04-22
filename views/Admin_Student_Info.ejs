@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/css/Admin_Student_Info.css" />
+		<title>Student Info</title>
+	</head>
+	<body>
+		<div class="menu-wrap">
+			<input type="checkbox" class="toggler" />
+			<div class="hamburger"><div></div></div>
+			<div class="menu">
+				<div>
+					<div>
+						<ul>
+							<li><a href="/Admin_Student_Info">Student Information</a></li>
+							<li><a href="Faculty_Info.html">Faculty Information</a></li>
+							<li><a href="Admin_Broadcasts.html">Broadcasts</a></li>
+							<li><a href="/MainLander">Log Out</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="container">
+            <div class="title">Batch</div>
+            <div class="course-table">
+              <table>
+                <% student.forEach(function(student) { %>
+                <th>Name</th>
+                <th>ID</th>
+                <tr></tr>
+                <td><%= student.name %></td>
+                <td><%= student.student_ID%>  </td>
+                <% }) %>
+              </table>
+            </div>
+          </div>
+
+	</body>
+</html>

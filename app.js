@@ -60,6 +60,12 @@ const StudentSchema = {
   password: String,
 };
 
+const BroadcastSchema = {
+  broadcasts: String,
+  date_Of_Broadcast: Date,
+  time_Of_Broadcast: Date,
+};
+
 app.use(passportFaculty.initialize());
 app.use(passportFaculty.session());
 const FacultySchema = {
@@ -76,6 +82,7 @@ const Student = mongoose.model("Student", StudentSchema);
 // const preStudent = mongoose.model("preStudent", GlobalSchema);
 const Faculty = mongoose.model("Faculty", FacultySchema);
 // const preFaculty = mongoose.model("preFaculty", FacultySchema);
+const Broadcast = mongoose.model("Broadcast", BroadcastSchema);
 
 app.set("view engine", "ejs");
 app.use(
@@ -129,6 +136,14 @@ app.get("/faculty", function (req, res) {
   res.render("Faculty_Login.ejs");
 });
 
+app.get("/Admin_Login", function (req, res) {
+  res.render("Admin_Login.ejs");
+});
+
+app.get("/Admin_Home", function (req, res) {
+  res.render("Admin_Home.ejs");
+});
+
 app.get("/Student_Home", checkAuthenticatedStudent, (req, res) => {
   res.render("Student_Home");
 });
@@ -145,14 +160,6 @@ app.get("/Faculty_Login", checkNotAuthenticatedFaculty, function (req, res) {
   res.status(200).render("Faculty_Login.ejs");
 });
 
-app.post(
-  "/Faculty_Login",
-  passportFaculty.authenticate("faculty", {
-    successRedirect: "/Faculty_Home",
-    failureRedirect: "/Faculty_Login",
-    failureFlash: true,
-  })
-);
 app.get("/Faculty_Home", checkAuthenticatedFaculty, (req, res) => {
   res.render("Faculty_Home.ejs");
 });
@@ -169,6 +176,10 @@ app.get("/Student_Info", checkAuthenticatedFaculty, (req, res) => {
   });
 });
 
+app.get("/login", function (req, res) {
+  res.render("login.ejs");
+});
+
 app.get("/Faculty_Signup", (req, res) => {
   res.render("Faculty_Signup");
 });
@@ -181,9 +192,40 @@ app.get("/", function (req, res) {
   res.render("Main_Lander.ejs");
 });
 
+app.get("/Admin_BroadCasts", function (req, res) {
+  Broadcast.find({}).then((broadcast) => {
+    res.render("Admin_BroadCasts.ejs", { broadcast });
+  });
+});
+
+app.get("/Admin_Student_Info", function (req, res) {
+  console.log("hello");
+  // res.render("Admin_Student_Info.ejs");
+  Student.find({}).then((student) => {
+    res.render("Admin_Student_Info.ejs", { student });
+  });
+});
+
+app.get("/Admin_Faculty_Info", function (req, res) {
+  console.log("hello");
+  // res.render("Admin_Student_Info.ejs");
+  Faculty.find({}).then((faculty) => {
+    res.render("Admin_Faculty_Info.ejs", { faculty });
+  });
+});
+
 app.post("/signup", function (req, res) {
   res.render("login.ejs");
 });
+
+app.post(
+  "/Faculty_Login",
+  passportFaculty.authenticate("faculty", {
+    successRedirect: "/Faculty_Home",
+    failureRedirect: "/Faculty_Login",
+    failureFlash: true,
+  })
+);
 
 app.post(
   "/Student_Home",
@@ -326,11 +368,10 @@ app.post("/", function (req, res) {
   console.log(student1.DOB);
   //   console.log(student1);
 
-  preStudent
-    .findOne({
-      name: student1.name,
-      EmailID: student1.EmailID,
-    })
+  Student.findOne({
+    name: student1.name,
+    EmailID: student1.EmailID,
+  })
     .then((studentfound) => {
       console.log(studentfound);
       if (studentfound) {
@@ -342,10 +383,31 @@ app.post("/", function (req, res) {
     });
 });
 
-app.get("/login", function (req, res) {
-  res.render("login.ejs");
+app.post("/Admin_Login", function (req, res) {
+  if (
+    req.body.username === process.env.Admin_name &&
+    req.body.password === process.env.Admin_pswd
+  ) {
+    console.log(process.env.Admin_pswd);
+    res.redirect("/Admin_Home");
+  } else {
+    console.log(process.env.Admin_pswd);
+    res.redirect("/Admin_Login");
+  }
 });
 
+app.post("/Admin_BroadCasts", function (req, res) {
+  const broadcastnew = new Broadcast({
+    broadcasts: req.body.Broadcast,
+    date_Of_Broadcast: new Date(),
+    time_Of_Broadcast: new Date(),
+  });
+  broadcastnew.save();
+  res.redirect("/Admin_Broadcasts");
+  // Broadcast.find({}).then((broadcast) => {
+  //   res.render("Admin_BroadCasts.ejs", { broadcast });
+  // });
+});
 // app.post(
 //   "/login",
 //   passportStudent.authenticate("student", {
@@ -354,21 +416,6 @@ app.get("/login", function (req, res) {
 //     failureFlash: true,
 //   })
 // );
-
-function checkAuthenticatedStudent(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/Student_Login");
-}
-
-function checkAuthenticatedFaculty(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  ``;
-  res.redirect("/Faculty_Login");
-}
 
 app.post("/logoutStudent", function (req, res, next) {
   req.logout(function (err) {
@@ -389,6 +436,21 @@ app.post("/logoutFaculty", function (req, res, next) {
     res.redirect("/");
   });
 });
+
+function checkAuthenticatedStudent(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/Student_Login");
+}
+
+function checkAuthenticatedFaculty(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  ``;
+  res.redirect("/Faculty_Login");
+}
 
 function checkNotAuthenticatedStudent(req, res, next) {
   if (req.isAuthenticated()) {
