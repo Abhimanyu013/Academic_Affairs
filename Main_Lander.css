@@ -1,49 +1,75 @@
 body {
     background-color: rgba(13, 110, 139, 0.75);
     font-family: 'Roboto', sans-serif;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
-.heading{
+.header {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 20vh;
+    background-color: white;
+    color: #0d6e8b;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.heading h1{
-    font-size: 60px;
-    color: white;
-}
-.Container{
-    margin: auto;
-    margin-top:30vh;
-    padding: 0px;
-}
-.Selection{
-    padding: 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.btn{
-    padding: 0px;
-}
-
-button{
-    background-color: rgba(255, 255, 255);
-    border: 0px;
-    border-radius: 4px;
-    transition: opacity 1sec ease-in-out;
-}
-
-button:hover{
-    opacity: 0.7;
-    
-}
-
-
-
-.btn p{
-    font-size:20px ;
+.header h1 {
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
     font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.container {
+    margin: auto;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+.btn {
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn a {
+    text-decoration: none;
+}
+
+button {
+    background-color: white;
+    color: #0d6e8b;
+    border: 2px solid #0d6e8b; /* add border */
+    border-radius: 15px;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: opacity 0.5s ease-in-out;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+    background-color: #0d6e8b;
+    color: white;
+    border-color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
+    button {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+    }
 }
