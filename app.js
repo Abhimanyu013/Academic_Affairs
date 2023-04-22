@@ -52,9 +52,11 @@ app.use(
 app.use(passportStudent.initialize());
 app.use(passportStudent.session());
 const StudentSchema = {
+  student_ID: String,
   name: String,
+  gender: String,
+  date_Of_Birth: Date,
   email: String,
-  DOB: Date,
   password: String,
 };
 
@@ -63,19 +65,17 @@ app.use(passportFaculty.session());
 const FacultySchema = {
   email: String,
   password: String,
-};
-
-const GlobalSchema = {
+  faculty_ID: Number,
   name: String,
-  email: String,
-  DOB: Date,
-  password: String,
+  gender: String,
+  alma_Mater: String,
+  date_Of_Joining: Date,
 };
 
 const Student = mongoose.model("Student", StudentSchema);
-const preStudent = mongoose.model("preStudent", GlobalSchema);
+// const preStudent = mongoose.model("preStudent", GlobalSchema);
 const Faculty = mongoose.model("Faculty", FacultySchema);
-const preFaculty = mongoose.model("preFaculty", FacultySchema);
+// const preFaculty = mongoose.model("preFaculty", FacultySchema);
 
 app.set("view engine", "ejs");
 app.use(
@@ -84,25 +84,32 @@ app.use(
   })
 );
 const date = new Date();
-const kush = new preStudent({
+const kush = new Student({
+  student_ID: "202001104",
   name: "Kush",
+  gender: "Male",
+  date_Of_Birth: new Date(),
   email: "202001104@daiict.ac.in",
-  DOB: date.getDate(),
   password: "hello",
 });
 
-const prof1 = new preFaculty({
+const prof1 = new Faculty({
   email: "kushshah358@gmail.com",
   password: "123",
+  faculty_ID: 1,
+  name: "Kush Shah",
+  gender: "male",
+  alma_Mater: "DAIICT",
+  date_Of_Joining: "04.05.2017",
 });
 
 // prof1.save();
-preFaculty.find({}).then((faculty) => {
+Faculty.find({}).then((faculty) => {
   if (faculty.length == 0) prof1.save();
 });
-// preStudent.find({}).then((preStudents) => {
-//   if (preStudents.length == 0) kush.save();
-// });
+Student.find({}).then((Students) => {
+  if (Students.length == 0) kush.save();
+});
 
 // const naruto = new Item({
 //   name: "naruto",
@@ -135,7 +142,7 @@ app.get(
 );
 
 app.get("/Faculty_Login", checkNotAuthenticatedFaculty, function (req, res) {
-  res.render("Faculty_Login.ejs");
+  res.status(200).render("Faculty_Login.ejs");
 });
 
 app.post(
@@ -146,16 +153,32 @@ app.post(
     failureFlash: true,
   })
 );
-
-app.get("/Faculty_Home", (req, res) => {
+app.get("/Faculty_Home", checkAuthenticatedFaculty, (req, res) => {
   res.render("Faculty_Home.ejs");
 });
+
+app.get("/Faculty_Info", checkAuthenticatedFaculty, (req, res) => {
+  Faculty.findOne({ _id: req.user }).then((faculty) => {
+    res.render("Faculty_Info.ejs", { faculty });
+  });
+});
+
+app.get("/Student_Info", checkAuthenticatedFaculty, (req, res) => {
+  Student.findOne({ _id: req.user }).then((student) => {
+    res.render("Student_Info.ejs", { student });
+  });
+});
+
 app.get("/Faculty_Signup", (req, res) => {
   res.render("Faculty_Signup");
 });
 
 app.get("/Student_Login", function (req, res) {
   res.render("Student_Home_Login.ejs");
+});
+
+app.get("/", function (req, res) {
+  res.render("Main_Lander.ejs");
 });
 
 app.post("/signup", function (req, res) {
@@ -186,49 +209,45 @@ app.post("/Student_Home_Login", (req, res) => {
     return pass;
   }
 
-  preStudent
-    .findOne({ email: req.body.email })
+  Student.findOne({ email: req.body.email })
     .then((student) => {
       if (student) {
         const randomPass = generateP();
         bcrypt.hash(randomPass, saltRounds).then((hashedPassword) => {
-          const newStudent = new Student({
-            name: req.body.name,
-            email: req.body.email,
-            password: hashedPassword,
+          Student.findOneAndUpdate(
+            { email: student.email },
+            { password: hashedPassword, date_Of_Birth: req.body.DOB }
+          ).then((x) => {
+            var transporter = nodemailer.createTransport({
+              host: "smtp.gmail.com",
+              port: 465,
+              secure: true,
+              auth: {
+                user: "kushshah358@gmail.com",
+                pass: process.env.PASSWORD,
+              },
+            });
+
+            var mailOptions = {
+              from: "202001104@daiict.ac.in",
+              to: req.body.email,
+              subject: "Student Information System",
+              text: `Your account has been created! Your password is ${randomPass}`,
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+              if (error) {
+                console.log(error);
+              } // else {
+              //   console.log(req.user + "\n" + req.body.email);
+              //   console.log("Email sent: " + info.response);
+              // }
+            });
+
+            res.redirect("/Student_Login");
           });
-
-          newStudent.save();
-
-          var transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 465,
-            secure: true,
-            auth: {
-              user: "kushshah358@gmail.com",
-              pass: process.env.PASSWORD,
-            },
-          });
-
-          var mailOptions = {
-            from: "202001104@daiict.ac.in",
-            to: req.body.email,
-            subject: "Student Information System",
-            text: `Your account has been created! Your password is ${randomPass}`,
-          };
-
-          transporter.sendMail(mailOptions, function (error, info) {
-            if (error) {
-              console.log(error);
-            } // else {
-            //   console.log(req.user + "\n" + req.body.email);
-            //   console.log("Email sent: " + info.response);
-            // }
-          });
-
-          res.redirect("/Student_Login");
         });
-      }
+      } else res.redirect("/Student_Home_Login");
     })
     .catch((err) => {
       console.log("Error:", err);
@@ -250,46 +269,44 @@ app.post("/Faculty_Signup", (req, res) => {
     return pass;
   }
 
-  preFaculty
-    .findOne({ email: req.body.email })
+  Faculty.findOne({ email: req.body.email })
     .then((faculty) => {
       if (faculty) {
         const randomPass = generateP();
         bcrypt.hash(randomPass, saltRounds).then((hashedPassword) => {
-          const newProf = new Faculty({
-            email: req.body.email,
-            password: hashedPassword,
+          Faculty.findOneAndUpdate(
+            { email: faculty.email },
+            { password: hashedPassword }
+          ).then((x) => {
+            console.log(x);
+            var transporter = nodemailer.createTransport({
+              host: "smtp.gmail.com",
+              port: 465,
+              secure: true,
+              auth: {
+                user: "kushshah358@gmail.com",
+                pass: process.env.PASSWORD,
+              },
+            });
+
+            var mailOptions = {
+              from: "202001104@daiict.ac.in",
+              to: req.body.email,
+              subject: "Student Information System",
+              text: `Your account has been created! Your password is ${randomPass}`,
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+              if (error) {
+                console.log(error);
+              } else {
+                console.log(req.user + "\n" + req.body.email);
+                console.log("Email sent: " + info.response);
+              }
+            });
+
+            res.redirect("/Faculty_Login");
           });
-
-          newProf.save();
-
-          var transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 465,
-            secure: true,
-            auth: {
-              user: "kushshah358@gmail.com",
-              pass: process.env.PASSWORD,
-            },
-          });
-
-          var mailOptions = {
-            from: "202001104@daiict.ac.in",
-            to: req.body.email,
-            subject: "Student Information System",
-            text: `Your account has been created! Your password is ${randomPass}`,
-          };
-
-          transporter.sendMail(mailOptions, function (error, info) {
-            if (error) {
-              console.log(error);
-            } else {
-              console.log(req.user + "\n" + req.body.email);
-              console.log("Email sent: " + info.response);
-            }
-          });
-
-          res.redirect("/Faculty_Login");
         });
       }
     })
@@ -338,10 +355,6 @@ app.get("/login", function (req, res) {
 //   })
 // );
 
-app.listen(3030, function () {
-  console.log("server is active");
-});
-
 function checkAuthenticatedStudent(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
@@ -357,14 +370,26 @@ function checkAuthenticatedFaculty(req, res, next) {
   res.redirect("/Faculty_Login");
 }
 
-app.delete("/logoutStudent", (req, res) => {
-  console.log("hi");
-  req.logOut(req.user, (err) => {
-    if (err) return next(err);
+app.post("/logoutStudent", function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
     console.log("hello");
-    res.redirect("/Student_Home_Login");
+    res.redirect("/");
   });
 });
+
+app.post("/logoutFaculty", function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    console.log("hello");
+    res.redirect("/");
+  });
+});
+
 function checkNotAuthenticatedStudent(req, res, next) {
   if (req.isAuthenticated()) {
     return res.redirect("/Student_Home");
@@ -377,3 +402,11 @@ function checkNotAuthenticatedFaculty(req, res, next) {
   }
   next();
 }
+
+if (!module.parent) {
+  app.listen(3030, function () {
+    console.log("server is active");
+  });
+}
+
+module.exports = app;

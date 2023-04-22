@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/css/Faculty_Info.css" />
+		<title>Personal Information</title>
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="menu-wrap">
+			<input type="checkbox" class="toggler" />
+			<div class="hamburger"><div></div></div>
+			<div class="menu">
+				<div>
+					<div>
+						<ul>
+							<li><a href="FacultyDetails.html">Faculty Details</a></li>
+							<li><a href="Faculty_Course_Report.html">Course Reports</a></li>
+							<li><a href="Faculty_Resources.html">Maintain course info</a></li>
+							<li><a href="Faculty_Broadcast.html">Broadcasts</a></li>
+							<li><a href="MainLander.html">Log Out</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="student-profile py-4">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="card shadow-sm">
+							<div class="card-header bg-transparent text-center">
+								<img
+									class="profile_img"
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI3e0IJIPpQdAgLp6-Uxdbns2tj7Y7PIZ2z_il0OPzqA&s"
+									alt="student dp"
+								/>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-8">
+						<div class="card shadow-sm">
+							<div class="card-header bg-transparent border-0">
+								<br />
+								<h3 class="mb-0">
+									<i class="far fa-clone pr-1"></i>General Information:
+								</h3>
+							</div>
+							<div>
+								<table>
+									<tr>
+										<td>Faculty ID</td>
+										<td><%= faculty.faculty_ID %></td>
+									</tr>
+									<tr>
+										<td>Name</td>
+										<td><%= faculty.name%></td>
+									</tr>
+									<tr>
+										<td>Gender</td>
+										<td><%= faculty.gender%></td>
+									</tr>
+									<tr>
+										<td>Email</td>
+										<td><%= faculty.email%></td>
+									</tr>
+									<tr>
+										<td>Alma Mater</td>
+										<td><%= faculty.alma_Mater%>
+										</td>
+									</tr>
+									<tr>
+										<% var options={ weekday: 'long' , year: 'numeric' , month: 'long' , day: 'numeric' }; %>
+										<td>Date of Joining</td>
+                    					<td><%= faculty.date_Of_Joining.toLocaleDateString("en-US", options) %></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -5,7 +5,7 @@
 			href="https://fonts.googleapis.com/css?family=Roboto"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="Faculty_Home_Style.css" />
+		<link rel="stylesheet" href="/css/Faculty_Home_Style.css" />
 		<title>Faculty Login Page</title>
 	</head>
 	<body>
@@ -16,7 +16,7 @@
 				<div>
 					<div>
 						<ul>
-							<li><a href="#">Faculty Details</a></li>
+							<li><a href="/Faculty_Info">Faculty Details</a></li>
 							<li><a href="#">Course Reports</a></li>
 							<li><a href="#">Maintain course info</a></li>
 							<li><a href="#">Broadcasts</a></li>
@@ -26,10 +26,15 @@
 			</div>
 		</div>
 
+
 		<header class="showcase">
 			<div class="container showcase-inner">
 				<h1>Welcome to Academic Affairs System</h1>
 			</div>
+			
 		</header>
+		<form action="/logoutFaculty" method="post">
+			<button type="submit"> Logout </button>
+		</form>
 	</body>
 </html>
