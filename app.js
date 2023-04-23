@@ -78,11 +78,29 @@ const FacultySchema = {
   date_Of_Joining: Date,
 };
 
+const FacultySubSchema = {
+  fac_Name: { type: mongoose.Schema.Types.ObjectId, ref: "Faculty" },
+  course_Name: { type: mongoose.Schema.Types.ObjectId, ref: "Courses" },
+  fac_Course_Link: String,
+  midsem1: [Number],
+  midsem2: [Number],
+  endsem: [Number],
+};
+const CoursesSchema = {
+  name: String,
+  semester: Number,
+  credits: Number,
+  code: String,
+};
 const Student = mongoose.model("Student", StudentSchema);
 // const preStudent = mongoose.model("preStudent", GlobalSchema);
 const Faculty = mongoose.model("Faculty", FacultySchema);
 // const preFaculty = mongoose.model("preFaculty", FacultySchema);
 const Broadcast = mongoose.model("Broadcast", BroadcastSchema);
+
+const FacultySub = mongoose.model("FacultySub", FacultySubSchema);
+
+const Courses = mongoose.model("Courses", CoursesSchema);
 
 app.set("view engine", "ejs");
 app.use(
@@ -100,6 +118,14 @@ const kush = new Student({
   password: "hello",
 });
 
+const Abhimanyu = new Student({
+  student_ID: "202001080",
+  name: "Abhimanyu",
+  gender: "Male",
+  date_Of_Birth: new Date(),
+  email: "202001080@daiict.ac.in",
+  password: "hello",
+});
 const prof1 = new Faculty({
   email: "kushshah358@gmail.com",
   password: "123",
@@ -110,7 +136,53 @@ const prof1 = new Faculty({
   date_Of_Joining: "04.05.2017",
 });
 
+const course1 = new Courses({
+  name: "Data Structures And ALgorithms",
+  semester: 3,
+  credits: 4,
+  code: "IT404",
+});
+
+const course2 = new Courses({
+  name: "C++",
+  semester: 1,
+  credits: 4,
+  code: "IT420",
+});
+
+// course1.save();
+// course2.save();
+// Faculty.findOne({ _id: "644382247ead6f8dc5745de9" }).then((faculty) => {
+//   Courses.findOne({ _id: "6444f88f4b52849ad0eeade3" }).then((course) => {
+//     const kush_course1 = new FacultySub({
+//       fac_Name: faculty,
+//       course_Name: course,
+//       fac_Course_Link: "www.google.com",
+//       midsem1: [15, 10, 20],
+//       midsem2: [20, 15, 20],
+//       endsem: [10, 5, 20],
+//     });
+//     kush_course1.save();
+//   });
+// });
+
+// Faculty.findOne({ _id: "644382247ead6f8dc5745de9" }).then((faculty) => {
+//   Courses.findOne({ _id: "6444f88f4b52849ad0eeade4" }).then((course) => {
+//     const kush_course2 = new FacultySub({
+//       fac_Name: faculty,
+//       course_Name: course,
+//       fac_Course_Link: "www.youtube.com",
+//       midsem1: [7, 5, 10],
+//       midsem2: [12, 10, 15],
+//       endsem: [17, 10, 20],
+//     });
+//     kush_course2.save();
+//   });
+// });
+
+// Abhimanyu.save();
 // prof1.save();
+
 Faculty.find({}).then((faculty) => {
   if (faculty.length == 0) prof1.save();
 });
@@ -169,6 +241,35 @@ app.get("/Faculty_Info", checkAuthenticatedFaculty, (req, res) => {
     res.render("Faculty_Info.ejs", { faculty });
   });
 });
+
+app.get("/Faculty_Sub_Info", checkAuthenticatedFaculty, (req, res) => {
+  FacultySub.find({ fac_Name: req.user })
+    .populate("course_Name")
+    .exec()
+    .then((faculty) => {
+      //console.log(faculty);
+      res.render("Faculty_Sub_Info.ejs", { faculty });
+    });
+});
+
+app.get("/Faculty_Resources", function (req, res) {
+  FacultySub.find({ fac_Name: req.user })
+    .populate("course_Name")
+    .exec()
+    .then((faculty) => {
+      //console.log(faculty);
+      res.render("Faculty_Resources.ejs", { faculty });
+    });
+});
+// app.get("/Faculty_Sub_Report", checkAuthenticatedFaculty, (req, res) => {
+//   FacultySub.find({ fac_Name: req.user })
+//     .populate("course_Name")
+//     .exec()
+//     .then((faculty) => {
+//       //console.log(faculty);
+//       res.render("Faculty_Sub_Report.ejs", { faculty });
+//     });
+// });
 
 app.get("/Student_Info", checkAuthenticatedFaculty, (req, res) => {
   Student.findOne({ _id: req.user }).then((student) => {
@@ -435,6 +536,18 @@ app.post("/logoutFaculty", function (req, res, next) {
     console.log("hello");
     res.redirect("/");
   });
+});
+
+app.post("/Faculty_Sub_Info", function (req, res) {
+  FacultySub.findOne({
+    fac_Name: req.user,
+    course_Name: req.body.Subject,
+  })
+    .populate("course_Name")
+    .exec()
+    .then((FacSub) => {
+      res.render("Faculty_Sub_Report.ejs", { FacSub });
+    });
 });
 
 function checkAuthenticatedStudent(req, res, next) {

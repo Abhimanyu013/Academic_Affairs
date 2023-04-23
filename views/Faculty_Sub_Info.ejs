@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/css/Faculty_Sub_Info.css" />
+		<title>Faculty Home Page</title>
+	</head>
+	<body>
+		<div class="menu-wrap">
+			<input type="checkbox" class="toggler" />
+			<div class="hamburger"><div></div></div>
+			<div class="menu">
+				<div>
+					<div>
+						<ul>
+							<li><a href="FacultyDetails.html">Faculty Details</a></li>
+							<li><a href="Select_Subject_Faculty.html">Course Reports</a></li>
+							<li><a href="Faculty_Resources.html">Maintain course info</a></li>
+							<li><a href="Faculty_Broadcast.html">Broadcasts</a></li>
+							<li><a href="MainLander.html">Log Out</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="selector">
+				<form action="/Faculty_Sub_Info" method="post">
+				<label id="labelh" for="Subject">Choose Subject</label>
+				<select name="Subject" id="Subject">
+					<option disabled selected> select </option>
+					<% for (var i=0; i<faculty.length; i++) { %>
+	
+					<option value="<%= faculty[i].course_Name.id %>"> <%= faculty[i].course_Name.name %></option>
+					
+					<%}%>
+				</select>
+				<button type="submit">Find Course Report</a></button>
+			</form>
+			</div>
+		</div>
+	</body>
+</html>

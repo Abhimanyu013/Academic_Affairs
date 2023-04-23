@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/css/Faculty_Sub_Report.css" />
+		<title>Faculty Course Report</title>
+	</head>
+	<body>
+		<div class="menu-wrap">
+			<input type="checkbox" class="toggler" />
+			<div class="hamburger"><div></div></div>
+			<div class="menu">
+				<div>
+					<div>
+						<ul>
+							<li><a href="FacultyDetails.html">Faculty Details</a></li>
+							<li><a href="Select_Subject_Faculty.html">Course Reports</a></li>
+							<li><a href="Faculty_Resources.html">Maintain course info</a></li>
+							<li><a href="Faculty_Broadcast.html">Broadcasts</a></li>
+							<li><a href="MainLander.html">Log Out</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="container">
+            <div class="title">Course Reports</div>
+            <h3><%=FacSub.course_Name.name %></h3>
+            <div class="course-table">
+              <table>
+                <th>Event</th>
+                <th>Highest Marks</th>
+                <th>Avg Marks</th>
+                <th>Total Marks</th>
+                <tr>
+                  <td>Midsem1</td>
+                  <% for (var i=0; i<FacSub.midsem1.length; i++) { %>
+                  <td><%= FacSub.midsem1[i] %></td>
+                  <%}%>
+                </tr>
+                <tr>
+                  <td>Midsem2</td>
+                  <% for (var i=0; i<FacSub.midsem2.length; i++) { %>
+                    <td><%= FacSub.midsem2[i] %></td>
+                    <%}%>
+                  </tr>
+                  <tr>
+                    <td>EndSem</td>
+                    <% for (var i=0; i<FacSub.endsem.length; i++) { %>
+                      <td><%= FacSub.endsem[i] %></td>
+                      <%}%>
+                    </tr>
+                </tr>
+              </table>
+            </div>
+          </div>
+	</body>
+</html>
+
+  
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="Faculty_Resources.css" />
+		<title>Faculty Resources</title>
+	</head>
+	<body>
+		<div class="menu-wrap">
+			<input type="checkbox" class="toggler" />
+			<div class="hamburger"><div></div></div>
+			<div class="menu">
+				<div>
+					<div>
+						<ul>
+							<li><a href="FacultyDetails.html">Faculty Details</a></li>
+							<li><a href="Select_Subject_Faculty.html">Course Reports</a></li>
+							<li><a href="Faculty_Resources.html">Maintain course info</a></li>
+							<li><a href="Faculty_Broadcast.html">Broadcasts</a></li>
+							<li><a href="MainLander.html">Log Out</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="container">
+            <div class="title">Subject</div>
+            <div class="course-table">
+              <table>
+                <th>Title</th>
+                <th>Link</th>
+                <tr></tr>
+                <% for (var i=0; i<faculty.length; i++) { %>
+                 <td>Reference Material for <%= faculty[i].course_Name.name %> </td>
+                 <td><a href="<%= faculty[i].fac_Course_Link%>" target="_blank"><button>Download</button></a></td>
+
+                <tr></tr>
+                <%}%>   
+              </table>
+            </div>
+          </div>
+	</body>
+</html>
