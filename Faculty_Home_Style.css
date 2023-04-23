@@ -204,5 +204,16 @@
     text-decoration: none;
     transition: color 0.4s ease;
   }
+
+  button{
+    position: fixed;
+    bottom: -4px;
+    right: 10px;
+    background-color : #31B0D5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border-color: #46b8da;
+ }
   
   
