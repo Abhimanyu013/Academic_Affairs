@@ -60,6 +60,14 @@ const StudentSchema = {
   password: String,
 };
 
+const StudentSubSchema = {
+  stu_Name: { type: mongoose.Schema.Types.ObjectId, ref: "Student" },
+  course_Name: { type: mongoose.Schema.Types.ObjectId, ref: "Courses" },
+  midsem1: Number,
+  midsem2: Number,
+  endsem: Number,
+};
+
 const BroadcastSchema = {
   broadcasts: String,
   date_Of_Broadcast: Date,
@@ -99,6 +107,8 @@ const Faculty = mongoose.model("Faculty", FacultySchema);
 const Broadcast = mongoose.model("Broadcast", BroadcastSchema);
 
 const FacultySub = mongoose.model("FacultySub", FacultySubSchema);
+
+const StudentSub = mongoose.model("StudentSub", StudentSubSchema);
 
 const Courses = mongoose.model("Courses", CoursesSchema);
 
@@ -152,15 +162,14 @@ const course2 = new Courses({
 
 // course1.save();
 // course2.save();
-// Faculty.findOne({ _id: "644382247ead6f8dc5745de9" }).then((faculty) => {
+// Student.findOne({ _id: "6446110514f2b404b9f14e7b" }).then((student) => {
 //   Courses.findOne({ _id: "6444f88f4b52849ad0eeade3" }).then((course) => {
-//     const kush_course1 = new FacultySub({
-//       fac_Name: faculty,
+//     const kush_course1 = new StudentSub({
+//       stu_Name: student,
 //       course_Name: course,
-//       fac_Course_Link: "www.google.com",
-//       midsem1: [15, 10, 20],
-//       midsem2: [20, 15, 20],
-//       endsem: [10, 5, 20],
+//       midsem1: 14,
+//       midsem2: 18,
+//       endsem: 7,
 //     });
 //     kush_course1.save();
 //   });
@@ -249,6 +258,52 @@ app.get("/Faculty_Sub_Info", checkAuthenticatedFaculty, (req, res) => {
     .then((faculty) => {
       //console.log(faculty);
       res.render("Faculty_Sub_Info.ejs", { faculty });
+    });
+});
+
+app.get("/Student_Sub_Info", checkAuthenticatedFaculty, (req, res) => {
+  StudentSub.find({ stu_Name: req.user })
+    .populate("course_Name")
+    .exec()
+    .then((student) => {
+      //console.log(faculty);
+      res.render("Student_Sub_Info.ejs", { student });
+    });
+});
+
+app.get("/Student_Grade_Tracking", checkAuthenticatedFaculty, (req, res) => {
+  StudentSub.find({ stu_Name: req.user })
+    .populate("course_Name")
+    .exec()
+    .then((StuSub) => {
+      // console.log(StuSub);
+      FacultySub.find({
+        course_Name: { $in: StuSub.map((s) => s.course_Name) },
+      })
+        .populate("course_Name")
+        .exec()
+        .then((FacSub) => {
+          // console.log(FacSub);
+          res.render("Student_Grade_Tracking.ejs", { StuSub, FacSub });
+        });
+    });
+});
+
+app.get("/Student_Resources", checkAuthenticatedFaculty, (req, res) => {
+  StudentSub.find({ stu_Name: req.user })
+    .populate("course_Name")
+    .exec()
+    .then((StuSub) => {
+      // console.log(StuSub);
+      FacultySub.find({
+        course_Name: { $in: StuSub.map((s) => s.course_Name) },
+      })
+        .populate("course_Name")
+        .exec()
+        .then((FacSub) => {
+          // console.log(FacSub);
+          res.render("Student_Resources.ejs", { StuSub, FacSub });
+        });
     });
 });
 
@@ -466,7 +521,7 @@ app.post("/", function (req, res) {
   });
 
   student1.save();
-  console.log(student1.DOB);
+  // console.log(student1.DOB);
   //   console.log(student1);
 
   Student.findOne({
@@ -547,6 +602,23 @@ app.post("/Faculty_Sub_Info", function (req, res) {
     .exec()
     .then((FacSub) => {
       res.render("Faculty_Sub_Report.ejs", { FacSub });
+    });
+});
+
+app.post("/Student_Sub_Info", function (req, res) {
+  StudentSub.findOne({
+    stu_Name: req.user,
+    course_Name: req.body.Subject,
+  })
+    .populate("course_Name")
+    .exec()
+    .then((StuSub) => {
+      // console.log(StuSub);
+      FacultySub.findOne({
+        course_Name: StuSub.course_Name,
+      }).then((FacSub) => {
+        res.render("Student_Sub_Report.ejs", { StuSub, FacSub });
+      });
     });
 });
 
