@@ -21,12 +21,16 @@ const initializePassportStudent = require("./passport-config-student.js");
 const initializePassportFaculty = require("./passport-config-faculty.js");
 
 mongoose.set("strictQuery", true);
-mongoose.connect(
-  "mongodb+srv://kushuchiha358:e9PoM8N1yJsNq9s9@cluster0.8nxusvu.mongodb.net/test",
-  {
-    useNewUrlParser: true,
-  }
-);
+mongoose
+  .connect(
+    "mongodb+srv://kushuchiha358:yja2tLWHU1GlSFx0@cluster0.8nxusvu.mongodb.net/test",
+    {
+      useNewUrlParser: true,
+    }
+  )
+  .then(() => {
+    console.log("DB connected");
+  });
 
 initializePassportStudent(
   passportStudent,
@@ -66,6 +70,8 @@ const StudentSubSchema = {
   midsem1: Number,
   midsem2: Number,
   endsem: Number,
+  attendance: Number,
+  feedback: String,
 };
 
 const BroadcastSchema = {
@@ -271,6 +277,26 @@ app.get("/Student_Sub_Info", checkAuthenticatedFaculty, (req, res) => {
     });
 });
 
+app.get("/Student_Attendance", checkAuthenticatedFaculty, (req, res) => {
+  StudentSub.find({ stu_Name: req.user })
+    .populate("course_Name")
+    .exec()
+    .then((StuSub) => {
+      //console.log(faculty);
+      res.render("Student_Attendance.ejs", { StuSub });
+    });
+});
+
+app.get("/Student_Feedback", checkAuthenticatedFaculty, (req, res) => {
+  StudentSub.find({ stu_Name: req.user })
+    .populate("course_Name")
+    .exec()
+    .then((StuSub) => {
+      //console.log(faculty);
+      res.render("Student_Feedback.ejs", { StuSub });
+    });
+});
+
 app.get("/Student_Grade_Tracking", checkAuthenticatedFaculty, (req, res) => {
   StudentSub.find({ stu_Name: req.user })
     .populate("course_Name")
@@ -354,6 +380,18 @@ app.get("/Admin_BroadCasts", function (req, res) {
   });
 });
 
+app.get("/Student_BroadCasts", function (req, res) {
+  Broadcast.find({}).then((broadcast) => {
+    res.render("Student_BroadCasts.ejs", { broadcast });
+  });
+});
+
+app.get("/Faculty_BroadCasts", function (req, res) {
+  Broadcast.find({}).then((broadcast) => {
+    res.render("Faculty_BroadCasts.ejs", { broadcast });
+  });
+});
+
 app.get("/Admin_Student_Info", function (req, res) {
   console.log("hello");
   // res.render("Admin_Student_Info.ejs");
@@ -368,6 +406,36 @@ app.get("/Admin_Faculty_Info", function (req, res) {
   Faculty.find({}).then((faculty) => {
     res.render("Admin_Faculty_Info.ejs", { faculty });
   });
+});
+
+app.get("/Admin_Feedback", function (req, res) {
+  StudentSub.find({})
+    .populate("course_Name")
+    .exec()
+    .then((StuSub) => {
+      Courses.find({}).then((Courses) => {
+        res.render("Admin_Feedback.ejs", { StuSub, Courses });
+      });
+    });
+});
+
+app.get("/Admin_Feedback_Details", function (req, res) {
+  res.render("Admin_Feedback_Details.ejs");
+});
+
+app.get("/Admin_Feedback_Details", function (req, res) {
+  console.log(req.body.Subject);
+  StudentSub.find({})
+    .populate("course_Name")
+    .exec()
+    .then(() => {
+      StudentSub.find({ "course_Name.name": req.body.Subject })
+        .populate("course_Name")
+        .exec()
+        .then((StuSub) => {
+          res.render("Admin_Feedback_Details.ejs", { StuSub });
+        });
+    });
 });
 
 app.post("/signup", function (req, res) {
@@ -620,6 +688,60 @@ app.post("/Student_Sub_Info", function (req, res) {
         res.render("Student_Sub_Report.ejs", { StuSub, FacSub });
       });
     });
+});
+
+app.post("/Student_Feedback", function (req, res) {
+  // StudentSub.find({
+  //   stu_Name: req.user,
+  // })
+  //   .populate("course_Name")
+  //   .exec()
+  //   .then((StuSub) => {
+  //     // console.log(StuSub);
+  //     for (var i = 0; i < StuSub.length; i++) {
+  //       if (StuSub[i].course_Name.name == req.body.Subject) {
+  //         console.log("hello");
+  //         StudentSub.updateOne(
+  //           {
+  //             stu_Name: req.user,
+  //             course_Name: StuSub[i].course_Name,
+  //           },
+  //           { $set: { feedback: req.body.feedback } }
+  //         );
+  //       }
+  //     }
+  //     res.redirect("/Student_Home");
+  //   });
+  StudentSub.find({
+    stu_Name: req.user,
+  })
+    .populate("course_Name")
+    .exec()
+    .then((StuSub) => {
+      for (var i = 0; i < StuSub.length; i++) {
+        if (StuSub[i].course_Name.name == req.body.Subject) {
+          StuSub[i].feedback = req.body.feedback;
+          console.log("yooooo");
+          StuSub[i].save();
+        }
+      }
+      res.redirect("/Student_Home");
+    });
+});
+
+app.post("/Admin_Feedback", function (req, res) {
+  // let response = await Courses.find({ name: req.body.name });
+  // console.log(response);
+
+  Courses.findOne({ _id: req.body.Subject }).then((course) => {
+    StudentSub.find({ course_Name: course })
+      .populate("course_Name")
+      .exec()
+      .then((StuSub) => {
+        console.log(StuSub);
+        res.render("Admin_Feedback_Details", { StuSub, course });
+      });
+  });
 });
 
 function checkAuthenticatedStudent(req, res, next) {

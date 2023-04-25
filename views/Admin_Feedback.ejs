@@ -5,8 +5,8 @@
 			href="https://fonts.googleapis.com/css?family=Roboto"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="/css/Admin_Faculty_Info.css" />
-		<title>Faculty Info</title>
+		<link rel="stylesheet" href="/css/Admin_Feedback.css" />
+		<title>Admin Home</title>
 	</head>
 	<body>
 		<div class="menu-wrap">
@@ -19,6 +19,7 @@
 							<li><a href="select_batch.html">Student Information</a></li>
 							<li><a href="Faculty_Info.html">Faculty Information</a></li>
 							<li><a href="Admin_Broadcasts.html">Broadcasts</a></li>
+							<li><a href="Feedback_Subject_Select_Admin.html">Feedbacks</a></li>
 							<li><a href="MainLander.html">Log Out</a></li>
 						</ul>
 					</div>
@@ -26,18 +27,18 @@
 			</div>
 		</div>
 
-        <div class="container">
-            <div class="title">Faculty Information</div>
-            <div class="course-table">
-              <table>
-                <% faculty.forEach(function(faculty) { %>
-                  <tr></tr>
-                  <td><%= faculty.name %></td>
-                  <td><%= faculty.faculty_ID%>  </td>
-                  <% }) %>
-              </table>
-            </div>
-          </div>
-
+		<div class="container">
+			<div class="selector">
+				<form action="/Admin_Feedback" method="post">
+				<label id="labelh" for="Subject">Choose Subject</label>
+				<select name="Subject" id="Subject">
+				<% for(var i=0;i<Courses.length;i++) {%>
+					<option value="<%=Courses[i].id%>"><%= Courses[i].name %></option>
+				<% } %>
+			</select>
+				<button type="submit">View Feedbacks</a></button>
+			</form>
+			</div>
+		</div>
 	</body>
 </html>
