@@ -56,10 +56,12 @@
                               <% finalgot += ObtainedMarks %>
                               <% finalTotal += TotalMarks %>
                             <%}%>
-                            <td><%= ObtainedMarks %> </td>
+                          <%}%>
+						  <td><%= ObtainedMarks %> </td>
                               <td><%= TotalMarks %></td>
                             <tr></tr>
-                          <%}%>
+						<% ObtainedMarks =0 %>
+						<% TotalMarks = 0 %>
                         <% } %>
 
                       
@@ -67,7 +69,7 @@
 					<td><b><%= finalgot %></b></td>
 					<td><b><%= finalTotal %></b></td>
 					<tr></tr>
-          <td colspan="3"><b>SPI: <%= ObtainedMarks*10 / TotalMarks %></b></td>
+          <td colspan="3"><b>SPI: <%= (finalgot*10 / finalTotal).toFixed(2) %></b></td>
 				</table>
 			</div>
 		</div>
