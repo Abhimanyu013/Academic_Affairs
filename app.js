@@ -124,65 +124,99 @@ app.use(
     extended: true,
   })
 );
-const date = new Date();
-const kush = new Student({
-  student_ID: "202001104",
-  name: "Kush",
-  gender: "Male",
-  date_Of_Birth: new Date(),
-  email: "202001104@daiict.ac.in",
-  password: "hello",
-});
+// const date = new Date();
+// const kush = new Student({
+//   student_ID: "202001104",
+//   name: "Kush",
+//   gender: "Male",
+//   date_Of_Birth: new Date(),
+//   email: "202001104@daiict.ac.in",
+//   password: "hello",
+// });
 
-const Abhimanyu = new Student({
-  student_ID: "202001080",
-  name: "Abhimanyu",
-  gender: "Male",
-  date_Of_Birth: new Date(),
-  email: "202001080@daiict.ac.in",
-  password: "hello",
-});
-const prof1 = new Faculty({
-  email: "kushshah358@gmail.com",
-  password: "123",
-  faculty_ID: 1,
-  name: "Kush Shah",
-  gender: "male",
-  alma_Mater: "DAIICT",
-  date_Of_Joining: "04.05.2017",
-});
+// const Abhimanyu = new Student({
+//   student_ID: "202001080",
+//   name: "Abhimanyu",
+//   gender: "Male",
+//   date_Of_Birth: new Date(),
+//   email: "202001080@daiict.ac.in",
+//   password: "hello",
+// });
+// const prof1 = new Faculty({
+//   email: "kushshah358@gmail.com",
+//   password: "123",
+//   faculty_ID: 1,
+//   name: "Kush Shah",
+//   gender: "male",
+//   alma_Mater: "DAIICT",
+//   date_Of_Joining: "04.05.2017",
+// });
 
-const course1 = new Courses({
-  name: "Data Structures And ALgorithms",
-  semester: 3,
-  credits: 4,
-  code: "IT404",
-});
+// const course3 = new Courses({
+//   name: "Software Engineering",
+//   semester: 3,
+//   credits: 4.5,
+//   code: "IT234",
+// });
 
-const course2 = new Courses({
-  name: "C++",
-  semester: 1,
-  credits: 4,
-  code: "IT420",
-});
+// const course4 = new Courses({
+//   name: "Cryptography",
+//   semester: 3,
+//   credits: 4,
+//   code: "SC402",
+// });
+// const course5 = new Courses({
+//   name: "Economics",
+//   semester: 3,
+//   credits: 3,
+//   code: "HM404",
+// });
+
+// const course6 = new Courses({
+//   name: "HCI",
+//   semester: 3,
+//   credits: 4,
+//   code: "IE314",
+// });
+
+// const course7 = new Courses({
+//   name: "OS",
+//   semester: 3,
+//   credits: 4.5,
+//   code: "IT414",
+// });
+
+// course3.save();
+// course4.save();
+// course5.save();
+// course6.save();
+// course7.save();
+
+// const course2 = new Courses({
+//   name: "C++",
+//   semester: 1,
+//   credits: 4,
+//   code: "IT420",
+// });
 
 // course1.save();
 // course2.save();
 // Student.findOne({ _id: "6446110514f2b404b9f14e7b" }).then((student) => {
-//   Courses.findOne({ _id: "6444f88f4b52849ad0eeade3" }).then((course) => {
+//   Courses.findOne({ _id: "6448bf06254eb9324064a667" }).then((course) => {
 //     const kush_course1 = new StudentSub({
 //       stu_Name: student,
 //       course_Name: course,
-//       midsem1: 14,
-//       midsem2: 18,
-//       endsem: 7,
+//       midsem1: 7,
+//       midsem2: 12,
+//       endsem: 17,
+//       feedback: "temp",
 //     });
 //     kush_course1.save();
 //   });
 // });
 
-// Faculty.findOne({ _id: "644382247ead6f8dc5745de9" }).then((faculty) => {
-//   Courses.findOne({ _id: "6444f88f4b52849ad0eeade4" }).then((course) => {
+// Faculty.findOne({ _id: "644508decf5610c643344c39" }).then((faculty) => {
+//   Courses.findOne({ _id: "6448bf06254eb9324064a667" }).then((course) => {
 //     const kush_course2 = new FacultySub({
 //       fac_Name: faculty,
 //       course_Name: course,
@@ -211,7 +245,7 @@ Student.find({}).then((Students) => {
 // const sasuke = new Item({
 //   name: "sasuke",
 // });
-const defaultnames = [kush];
+// const defaultnames = [kush];
 const saltRounds = 10;
 app.use(express.static("public"));
 
