@@ -31,12 +31,14 @@
 			<div class="selector">
 				<form action="/Admin_Feedback" method="post">
 				<label id="labelh" for="Subject">Choose Subject</label>
-				<select name="Subject" id="Subject">
+				<select name="Subject" id="Subject" style="border-radius: 10px;">
 				<% for(var i=0;i<Courses.length;i++) {%>
 					<option value="<%=Courses[i].id%>"><%= Courses[i].name %></option>
 				<% } %>
 			</select>
-				<button type="submit">View Feedbacks</a></button>
+			<div style="display: flex; justify-content: center; margin-top: 20px;">
+				<button type="submit" style="background-color: white; color: black; border-radius: 10px; padding: 10px;">View Feedbacks</a></button>
+			</div>
 			</form>
 			</div>
 		</div>

@@ -215,6 +215,12 @@
   }
   
   
+   
+  button{
+    border: none;
+    cursor: pointer;
+    padding: 20px;
+  }
   
   
   

@@ -5,6 +5,7 @@
 			href="https://fonts.googleapis.com/css?family=Roboto"
 			rel="stylesheet"
 		/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="/css/Admin_Broadcast.css" />
 		<title>Admin Broadcasts</title>
 	</head>
@@ -29,20 +30,22 @@
 
 		<div class="container">
 			<div class="title">Broadcasts</div>
-			<div class="course-table">
-				<table>
-					<th style="width: 70%">Broadcasts</th>
-					<th>Date of Broadcast</th>
-					<th>Time of Broadcast</th>
+			<div class="course-table" style="color: black;">
+				<table class="table table-striped" style="border: 2px solid black;">
+					<tr class="table-warning">
+					<th style="width: 70%; border: 2px solid black; padding-top: 22px;" >Broadcasts</th>
+					<th style="border: 2px solid black;">Date of Broadcast</th>
+					<th style="border: 2px solid black;">Time of Broadcast</th>
+					</tr>
 					<% broadcast.forEach(function(broadcast) { %>
-						<tr></tr>
-					<td>
+						<tr class="table-success">
+					<td style="border: 2px solid black;">
 						<%= broadcast.broadcasts %>
 					</td>
 					<% var options={ weekday: 'long' , year: 'numeric' , month: 'long' , day: 'numeric' }; %>
-                    <td><%= broadcast.date_Of_Broadcast.toLocaleDateString("en-US", options) %></td>
-					<td><%= broadcast.time_Of_Broadcast.toLocaleString('en-US', { hour: 'numeric', hour12: true }) %></td>
-					<tr></tr>
+                    <td style="border: 2px solid black;"><%= broadcast.date_Of_Broadcast.toLocaleDateString("en-US", options) %></td>
+					<td style="border: 2px solid black;"><%= broadcast.time_Of_Broadcast.toLocaleString('en-US', { hour: 'numeric', hour12: true }) %></td>
+					</tr>
 				<%  }) %>
 				<tr></tr>
 				</table>

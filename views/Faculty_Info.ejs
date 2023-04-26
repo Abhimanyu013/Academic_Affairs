@@ -39,7 +39,7 @@
 							<div class="card-header bg-transparent text-center">
 								<img
 									class="profile_img"
-									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI3e0IJIPpQdAgLp6-Uxdbns2tj7Y7PIZ2z_il0OPzqA&s"
+									src="https://png.pngtree.com/png-vector/20220520/ourlarge/pngtree-teacher-background-business-classroom-concept-png-image_4620735.png"
 									alt="student dp"
 								/>
 							</div>
@@ -49,34 +49,34 @@
 						<div class="card shadow-sm">
 							<div class="card-header bg-transparent border-0">
 								<br />
-								<h3 class="mb-0">
+								<h3 class="mb-0" style="font-size: 30px;">
 									<i class="far fa-clone pr-1"></i>General Information:
 								</h3>
 							</div>
 							<div>
 								<table>
-									<tr>
+									<tr style="background-color: #ffeeba;">
 										<td>Faculty ID</td>
 										<td><%= faculty.faculty_ID %></td>
 									</tr>
-									<tr>
+									<tr style="background-color: #c3e6cb;">
 										<td>Name</td>
 										<td><%= faculty.name%></td>
 									</tr>
-									<tr>
+									<tr style="background-color: #c3e6cb;">
 										<td>Gender</td>
 										<td><%= faculty.gender%></td>
 									</tr>
-									<tr>
+									<tr style="background-color: #c3e6cb;">
 										<td>Email</td>
 										<td><%= faculty.email%></td>
 									</tr>
-									<tr>
+									<tr style="background-color: #c3e6cb;">
 										<td>Alma Mater</td>
 										<td><%= faculty.alma_Mater%>
 										</td>
-									</tr>
-									<tr>
+									</tr style="background-color: #c3e6cb;">
+									<tr style="background-color: #c3e6cb;">
 										<td>Date of Joining</td>
                     					<td><%= faculty.date_Of_Joining%></td>
 									</tr>
@@ -89,8 +89,12 @@
 		</div>
 		<div class="changepass">
 			<form action="/Faculty_Info" method="post">
-			<input type="password" name="password" placeholder="Password" required="" id="changepassfield">
-			<button type="submit" id ="passchangebutton">Change Password</button>
+			<input type="password" name="password" placeholder="   Password"  style="margin-left: 615px;
+			margin-top: 30px;
+			width: 20%;
+			height: 35px;
+			border-radius: 5px;" required="" id="changepassfield">
+			<button type="submit" id ="passchangebutton" style="width: 20%;">Change Password</button>
 			</form>
 		</div>
 	</body>

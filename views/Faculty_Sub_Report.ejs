@@ -5,6 +5,7 @@
 			href="https://fonts.googleapis.com/css?family=Roboto"
 			rel="stylesheet"
 		/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="/css/Faculty_Sub_Report.css" />
 		<title>Faculty Course Report</title>
 	</head>
@@ -27,39 +28,41 @@
 				</div>
 			</div>
 		</div>
-        <div class="container">
-            <div class="title">Course Reports</div>
-            <h3><%=FacSub.course_Name.name %></h3>
-            <div class="course-table">
-              <table>
-                <th>Event</th>
-                <th>Highest Marks</th>
-                <th>Avg Marks</th>
-                <th>Total Marks</th>
-                <tr>
-                  <td>Midsem1</td>
-                  <% for (var i=0; i<FacSub.midsem1.length; i++) { %>
-                  <td><%= FacSub.midsem1[i] %></td>
-                  <%}%>
-                </tr>
-                <tr>
-                  <td>Midsem2</td>
-                  <% for (var i=0; i<FacSub.midsem2.length; i++) { %>
-                    <td><%= FacSub.midsem2[i] %></td>
-                    <%}%>
-                  </tr>
-                  <tr>
-                    <td>EndSem</td>
-                    <% for (var i=0; i<FacSub.endsem.length; i++) { %>
-                      <td><%= FacSub.endsem[i] %></td>
-                      <%}%>
-                    </tr>
-                </tr>
-              </table>
-            </div>
-          </div>
-	</body>
+    <div class="container">
+      <div class="title">Course Reports</div>
+      <h3><%=FacSub.course_Name.name %></h3>
+      <div class="course-table" style="color: black;">
+        <table class="table table-striped"class="table table-striped" style="border: 2px solid black;">
+          <tr class="table-warning">
+          <th style="border: 2px solid black;">Event</th>
+          <th style="border: 2px solid black;">Highest Marks</th>
+          <th style="border: 2px solid black;">Avg Marks</th>
+          <th style="border: 2px solid black;">Total Marks</th>
+          </tr>
+          <tr class="table-success">
+            <td style="border: 2px solid black;">Midsem1</td>
+            <% for (var i=0; i<FacSub.midsem1.length; i++) { %>
+            <td style="border: 2px solid black;"><%= FacSub.midsem1[i] %></td>
+            <%}%>
+          </tr>
+          <tr class="table-success">
+            <td style="border: 2px solid black;">Midsem2</td>
+            <% for (var i=0; i<FacSub.midsem2.length; i++) { %>
+              <td style="border: 2px solid black;"><%= FacSub.midsem2[i] %></td>
+              <%}%>
+            </tr>
+            <tr class="table-success">
+              <td style="border: 2px solid black;">EndSem</td>
+              <% for (var i=0; i<FacSub.endsem.length; i++) { %>
+                <td style="border: 2px solid black;"><%= FacSub.endsem[i] %></td>
+                <%}%>
+              </tr>
+          </tr>
+        </table>
+      </div>
+    </div>
+</body>
 </html>
 
-  
+
 

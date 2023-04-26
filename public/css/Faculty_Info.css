@@ -223,10 +223,12 @@ table,
 th,
 td {
   font-size: 1.25rem;
-  border: 1px solid black;
+  border: 2px solid black;
   border-collapse: collapse;
-  color: white;
+  color: black;
   text-align: center;
+  padding: 10px;
+  
 }
 
 table {

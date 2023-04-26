@@ -211,6 +211,19 @@
   }
 
 
+  
+  button{
+    position: absolute;
+    top: 0;
+    right: 0; 
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    font-family: 'Roboto';
+  }
 
   
   
