@@ -89,7 +89,7 @@ const FacultySchema = {
   name: String,
   gender: String,
   alma_Mater: String,
-  date_Of_Joining: String,
+  date_Of_Joining:String,
 };
 
 const FacultySubSchema = {
