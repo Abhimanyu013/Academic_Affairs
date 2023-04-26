@@ -311,6 +311,14 @@ app.get("/Student_Sub_Info", checkAuthenticatedFaculty, (req, res) => {
     });
 });
 
+app.get("/Forgot_Pswd", function (req, res) {
+  res.render("Forgot_Pswd.ejs");
+});
+
+app.get("/Faculty_Forgot_Pswd", function (req, res) {
+  res.render("Faculty_Forgot_Pswd.ejs");
+});
+
 app.get("/Student_Attendance", checkAuthenticatedFaculty, (req, res) => {
   StudentSub.find({ stu_Name: req.user })
     .populate("course_Name")
@@ -531,7 +539,7 @@ app.post("/Student_Home_Login", (req, res) => {
             var mailOptions = {
               from: "202001104@daiict.ac.in",
               to: req.body.email,
-              subject: "Student Information System",
+              subject: "Academic Affairs System",
               text: `Your account has been created! Your password is ${randomPass}`,
             };
 
@@ -592,7 +600,7 @@ app.post("/Faculty_Signup", (req, res) => {
             var mailOptions = {
               from: "202001104@daiict.ac.in",
               to: req.body.email,
-              subject: "Student Information System",
+              subject: "Academic Affairs System",
               text: `Your account has been created! Your password is ${randomPass}`,
             };
 
@@ -652,6 +660,162 @@ app.post("/Admin_Login", function (req, res) {
     console.log(process.env.Admin_pswd);
     res.redirect("/Admin_Login");
   }
+});
+
+app.post("/Student_Info", function (req, res) {
+  const randomPass = req.body.password;
+  bcrypt.hash(randomPass, saltRounds).then((hashedPassword) => {
+    Student.findOneAndUpdate(
+      { _id: req.user },
+      { password: hashedPassword }
+    ).then((x) => {
+      // else {
+      //   console.log(req.user + "\n" + req.body.email);
+      //   console.log("Email sent: " + info.response);
+
+      res.redirect("/Student_Login");
+      // }
+    });
+  });
+});
+
+app.post("/Faculty_Info", function (req, res) {
+  const randomPass = req.body.password;
+  bcrypt.hash(randomPass, saltRounds).then((hashedPassword) => {
+    Faculty.findOneAndUpdate(
+      { _id: req.user },
+      { password: hashedPassword }
+    ).then((x) => {
+      // else {
+      //   console.log(req.user + "\n" + req.body.email);
+      //   console.log("Email sent: " + info.response);
+
+      res.redirect("/Faculty_Login");
+      // }
+    });
+  });
+});
+
+app.post("/Forgot_Pswd", function (req, res) {
+  function generateP() {
+    var pass = "";
+    var str =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz0123456789@#$";
+
+    for (let i = 1; i <= 10; i++) {
+      var char = Math.floor(Math.random() * str.length + 1);
+
+      pass += str.charAt(char);
+    }
+
+    return pass;
+  }
+
+  Student.findOne({ email: req.body.email })
+    .then((student) => {
+      if (student) {
+        const randomPass = generateP();
+        bcrypt.hash(randomPass, saltRounds).then((hashedPassword) => {
+          Student.findOneAndUpdate(
+            { email: student.email },
+            { password: hashedPassword },
+            { new: true }
+          ).then((x) => {
+            var transporter = nodemailer.createTransport({
+              host: "smtp.gmail.com",
+              port: 465,
+              secure: true,
+              auth: {
+                user: "kushshah358@gmail.com",
+                pass: process.env.PASSWORD,
+              },
+            });
+
+            var mailOptions = {
+              from: "kushshah358@gmail.com",
+              to: req.body.email,
+              subject: "Academic Affairs System",
+              text: `Your account has been created! Your password is ${randomPass}`,
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+              if (error) {
+                console.log(error);
+              } // else {
+              //   console.log(req.user + "\n" + req.body.email);
+              //   console.log("Email sent: " + info.response);
+              // }
+            });
+
+            res.redirect("/Student_Login");
+          });
+        });
+      } else res.redirect("/Student_Home_Login");
+    })
+    .catch((err) => {
+      console.log("Error:", err);
+    });
+});
+
+app.post("/Faculty_Forgot_Pswd", function (req, res) {
+  function generateP() {
+    var pass = "";
+    var str =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz0123456789@#$";
+
+    for (let i = 1; i <= 10; i++) {
+      var char = Math.floor(Math.random() * str.length + 1);
+
+      pass += str.charAt(char);
+    }
+
+    return pass;
+  }
+
+  Faculty.findOne({ email: req.body.email })
+    .then((faculty) => {
+      if (faculty) {
+        const randomPass = generateP();
+        bcrypt.hash(randomPass, saltRounds).then((hashedPassword) => {
+          Faculty.findOneAndUpdate(
+            { email: faculty.email },
+            { password: hashedPassword },
+            { new: true }
+          ).then((x) => {
+            var transporter = nodemailer.createTransport({
+              host: "smtp.gmail.com",
+              port: 465,
+              secure: true,
+              auth: {
+                user: "kushshah358@gmail.com",
+                pass: process.env.PASSWORD,
+              },
+            });
+
+            var mailOptions = {
+              from: "kushshah358@gmail.com",
+              to: req.body.email,
+              subject: "Academic Affairs System",
+              text: `Your account has been created! Your password is ${randomPass}`,
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+              if (error) {
+                console.log(error);
+              } // else {
+              //   console.log(req.user + "\n" + req.body.email);
+              //   console.log("Email sent: " + info.response);
+              // }
+            });
+
+            res.redirect("/Faculty_Login");
+          });
+        });
+      } else res.redirect("/");
+    })
+    .catch((err) => {
+      console.log("Error:", err);
+    });
 });
 
 app.post("/Admin_BroadCasts", function (req, res) {

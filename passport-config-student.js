@@ -13,7 +13,8 @@ function initialize(passportStudent, getUserByEmail, getUserById) {
       if (await bcrypt.compare(password, user.password)) {
         return done(null, user);
       } else {
-        
+        console.log(password);
+        console.log(user.password);
         return done(null, false, { message: "Incorrect password!" });
       }
     } catch (e) {
