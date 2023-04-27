@@ -37,9 +37,9 @@
 			<div class="title">Grades</div>
 			<div class="course-table">
 				<table>
-					<th>Subjects</th>
-					<th>Credits Scored</th>
-					<th>Total Credits</th>
+					<th style="background-color: #ffeeba;">Subjects</th>
+					<th style="background-color: #ffeeba;">Credits Scored</th>
+					<th style="background-color: #ffeeba;">Total Credits</th>
 					<tr></tr>
                     
                         <% var ObtainedMarks = 0 %>
@@ -47,7 +47,7 @@
                         <% var finalgot = 0 %>
                         <% var finalTotal = 0 %>
                         <% for (var i=0; i<StuSub.length; i++) { %>
-                          <td><%= StuSub[i].course_Name.name %></td>
+                          <td style="background-color: #c3e6cb;"><%= StuSub[i].course_Name.name %></td>
                           <% for (var i1=0; i1<FacSub.length; i1++) { %>
 
                             <% if(FacSub[i1].course_Name.id == StuSub[i].course_Name.id) {%>
@@ -57,19 +57,19 @@
                               <% finalTotal += TotalMarks %>
                             <%}%>
                           <%}%>
-						  <td><%= ObtainedMarks %> </td>
-                              <td><%= TotalMarks %></td>
+						  <td style="background-color: #c3e6cb;"><%= ObtainedMarks %> </td>
+                              <td style="background-color: #c3e6cb;"><%= TotalMarks %></td>
                             <tr></tr>
 						<% ObtainedMarks =0 %>
 						<% TotalMarks = 0 %>
                         <% } %>
 
                       
-					<td><b>Total</b></td>
-					<td><b><%= finalgot %></b></td>
-					<td><b><%= finalTotal %></b></td>
+					<td style="background-color: #c3e6cb;"><b>Total</b></td>
+					<td style="background-color: #c3e6cb;"><b><%= finalgot %></b></td>
+					<td style="background-color: #c3e6cb;"><b><%= finalTotal %></b></td>
 					<tr></tr>
-          <td colspan="3"><b>SPI: <%= (finalgot*10 / finalTotal).toFixed(2) %></b></td>
+          <td  style="background-color: #ffeeba;" colspan="3"><b>SPI: <%= (finalgot*10 / finalTotal).toFixed(2) %></b></td>
 				</table>
 			</div>
 		</div>

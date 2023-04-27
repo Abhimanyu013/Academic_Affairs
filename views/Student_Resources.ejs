@@ -36,13 +36,13 @@
       <div class="title">Subject</div>
       <div class="course-table">
         <table>
-          <th>Title</th>
-          <th>Link</th>
+          <th style="background-color: #ffeeba;">Title</th>
+          <th style="background-color: #ffeeba;">Link</th>
           <tr></tr>
           <% for (var i=0; i<StuSub.length; i++) { %>
-            <td><%= StuSub[i].course_Name.name %></td>
+            <td style="background-color: #c3e6cb;"><%= StuSub[i].course_Name.name %></td>
             <% for (var i1=0; i1<FacSub.length; i1++) { %>
-                <td><a href="<%= FacSub[i1].fac_Course_Link%>" target="_blank"><button>Download</button></a></td>
+                <td style="background-color: #66806d;"><a href="<%= FacSub[i1].fac_Course_Link%>" target="_blank"><button type="submit" style="background-color: white; color: black; border: none; border-radius: px;">Download</button></a></td>
           <tr></tr>
           <%}%>
           <%}%>

@@ -41,7 +41,7 @@
             <div class="container">
                 <form action="/Student_Feedback" method="post">
                     <div class="selector">
-                        <label id="labelh" for="Subject">Choose Subject</label>
+                        <label style="color: black; border: none; border-radius: 10px;" id="labelh" for="Subject">Choose Subject</label>
                         <h1 name="id"></h1>
                         <select name="Subject" id="Subject">
                             <% for (var i=0; i<StuSub.length; i++) { %>
@@ -49,16 +49,37 @@
                             <% } %>
                         </select>
                     </div>
+                    <br>
+                    <br>
+                   
+
                     <div id="Feedback">
                         <div id="Feedback_Label">
-                            <label for="feedback">Write your Feedback</label>
+                            <label for="feedback">Write your Feedback:</label>
                         </div>
+                       
                         <div id="Feedback_Text"> 
                             <textarea id="feedback" name="feedback" required></textarea>
                         </div>
                     </div>
+                    <br>
                     <div class="Feedback_Submit">
-                        <input type="submit" value="Submit Feedback">
+                        <input style="
+                        width: 60%;
+                        height: 40px;
+                        margin: 10px auto;
+                        justify-content: center;
+                        display: block;
+                        color: #fff;
+                        background: #573b8a;
+                        font-size: 1em;
+                        font-weight: bold;
+                        margin-top: 20px;
+                        outline: none;
+                        border: none;
+                        border-radius: 5px;
+                        transition: .2s ease-in;
+                        cursor: pointer;"  type="submit" value="Submit Feedback">
                     </div>
                 </form>
             </div>

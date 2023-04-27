@@ -58,23 +58,23 @@
 							</div>
 							<div>
 								<table>
-									<tr>
+									<tr  style="background-color: #ffeeba;">
 										<td>Student ID</td>
 										<td><%= student.student_ID %></td>
 									</tr>
-									<tr>
+									<tr style="background-color: #c3e6cb;">
 										<td>Name</td>
 										<td><%= student.name %></td>
 									</tr>
-									<tr>
+									<tr style="background-color: #c3e6cb;">
 										<td>Gender</td>
 										<td><%= student.gender %></td>
 									</tr>
-									<tr>
+									<tr style="background-color: #c3e6cb;">
 										<td>Email</td>
 										<td><%= student.email %></td>
 									</tr>
-									<tr>
+									<tr style="background-color: #c3e6cb;">
 										<% var options={ weekday: 'long' , year: 'numeric' , month: 'long' , day: 'numeric' }; %>
 										<td>Date of Birth</td>
                     					<td><%= student.date_Of_Birth.toLocaleDateString("en-US", options) %></td>
@@ -88,9 +88,13 @@
 			</div>
 		</div>
 		<div class="changepass">
-			<form action="/Student_Info" method="post">
-			<input type="password" name="password" placeholder="Password" required="" id="changepassfield">
-			<button type="submit" id ="passchangebutton">Change Password</button>
+			<form action="/Faculty_Info" method="post">
+			<input type="password" name="password" placeholder="   Password"  style="margin-left: 615px;
+			margin-top: 30px;
+			width: 20%;
+			height: 35px;
+			border-radius: 5px;" required="" id="changepassfield">
+			<button type="submit" id ="passchangebutton" style="width: 20%;">Change Password</button>
 			</form>
 		</div>
   </body>

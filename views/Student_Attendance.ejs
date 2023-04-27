@@ -36,14 +36,14 @@
       <div class="title">Semester List</div>
       <div class="course-table">
         <table>
-          <th>Subject</th>
-          <th>Attended</th>
-          <th> Total Lectures</th>
+          <th style="background-color: #ffeeba;">Subject</th>
+          <th style="background-color: #ffeeba;">Attended</th>
+          <th style="background-color: #ffeeba;"> Total Lectures</th>
           <tr></tr>
           <% for (var i=0; i<StuSub.length; i++) { %>
-          <td><%= StuSub[i].course_Name.name %></td>
-          <td><%= StuSub[i].attendance %></td>
-          <td>10</td>
+          <td style="background-color: #c3e6cb;"><%= StuSub[i].course_Name.name %></td>
+          <td style="background-color: #c3e6cb;"><%= StuSub[i].attendance %></td>
+          <td style="background-color: #c3e6cb;">10</td>
           <tr></tr>
           <%}%>
         </table>
