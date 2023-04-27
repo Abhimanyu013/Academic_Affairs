@@ -19,6 +19,11 @@
 				</form>
 				<form action="/Forgot_Pswd" method="get">
 					<button type="submit" id ="passchangebutton">Forgot Password</button>
+					<div style="text-align: center; color: red; margin-top: 10%;">
+						<% if(messages.error){ %>
+						<%=messages.error %>
+						<% } %>
+					</div>
 				</form>
 			</div>
 			<div class="signup" >
@@ -29,14 +34,11 @@
 					<input type="date" name="DOB" placeholder="DateofBirth" required="">
 					<!-- <input type="password" name="pswd" placeholder="New Password" required=""> -->
 					<button type="submit">Sign Up</button>
+			
 				</form>
 			</div>
 	</div>
 	
-	
-	<% if(messages.error){ %>
-		<%=messages.error %>
-		<% } %>
 	
 </body>
 </html>
