@@ -428,9 +428,8 @@ app.get("/Student_BroadCasts", checkAuthenticatedStudent, function (req, res) {
   });
 });
 
-app.get("/Faculty_BroadCasts", checkAuthenticatedFaculty, function (req, res) {
+app.get("/Faculty_Broadcasts", checkAuthenticatedFaculty, function (req, res) {
   Broadcast.find({}).then((broadcast) => {
-    git;
     res.render("Faculty_Broadcasts.ejs", { broadcast });
   });
 });
