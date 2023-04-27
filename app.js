@@ -89,7 +89,7 @@ const FacultySchema = {
   name: String,
   gender: String,
   alma_Mater: String,
-  date_Of_Joining:String,
+  date_Of_Joining: String,
 };
 
 const FacultySubSchema = {
@@ -418,19 +418,19 @@ app.get("/", function (req, res) {
 
 app.get("/Admin_BroadCasts", function (req, res) {
   Broadcast.find({}).then((broadcast) => {
-    res.render("Admin_BroadCasts.ejs", { broadcast });
+    res.render("Admin_Broadcasts.ejs", { broadcast });
   });
 });
 
 app.get("/Student_BroadCasts", function (req, res) {
   Broadcast.find({}).then((broadcast) => {
-    res.render("Student_BroadCasts.ejs", { broadcast });
+    res.render("Student_Broadcasts.ejs", { broadcast });
   });
 });
 
 app.get("/Faculty_BroadCasts", function (req, res) {
   Broadcast.find({}).then((broadcast) => {
-    res.render("Faculty_BroadCasts.ejs", { broadcast });
+    res.render("Faculty_Broadcasts.ejs", { broadcast });
   });
 });
 
