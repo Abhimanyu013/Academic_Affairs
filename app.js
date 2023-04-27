@@ -319,7 +319,7 @@ app.get("/Faculty_Forgot_Pswd", function (req, res) {
   res.render("Faculty_Forgot_Pswd.ejs");
 });
 
-app.get("/Student_Attendance", checkAuthenticatedFaculty, (req, res) => {
+app.get("/Student_Attendance", checkAuthenticatedStudent, (req, res) => {
   StudentSub.find({ stu_Name: req.user })
     .populate("course_Name")
     .exec()
@@ -329,7 +329,7 @@ app.get("/Student_Attendance", checkAuthenticatedFaculty, (req, res) => {
     });
 });
 
-app.get("/Student_Feedback", checkAuthenticatedFaculty, (req, res) => {
+app.get("/Student_Feedback", checkAuthenticatedStudent, (req, res) => {
   StudentSub.find({ stu_Name: req.user })
     .populate("course_Name")
     .exec()
@@ -339,7 +339,7 @@ app.get("/Student_Feedback", checkAuthenticatedFaculty, (req, res) => {
     });
 });
 
-app.get("/Student_Grade_Tracking", checkAuthenticatedFaculty, (req, res) => {
+app.get("/Student_Grade_Tracking", checkAuthenticatedStudent, (req, res) => {
   StudentSub.find({ stu_Name: req.user })
     .populate("course_Name")
     .exec()
@@ -357,7 +357,7 @@ app.get("/Student_Grade_Tracking", checkAuthenticatedFaculty, (req, res) => {
     });
 });
 
-app.get("/Student_Resources", checkAuthenticatedFaculty, (req, res) => {
+app.get("/Student_Resources", checkAuthenticatedStudent, (req, res) => {
   StudentSub.find({ stu_Name: req.user })
     .populate("course_Name")
     .exec()
@@ -375,7 +375,7 @@ app.get("/Student_Resources", checkAuthenticatedFaculty, (req, res) => {
     });
 });
 
-app.get("/Faculty_Resources", function (req, res) {
+app.get("/Faculty_Resources", checkAuthenticatedFaculty, function (req, res) {
   FacultySub.find({ fac_Name: req.user })
     .populate("course_Name")
     .exec()
@@ -394,7 +394,7 @@ app.get("/Faculty_Resources", function (req, res) {
 //     });
 // });
 
-app.get("/Student_Info", checkAuthenticatedFaculty, (req, res) => {
+app.get("/Student_Info", checkAuthenticatedStudent, (req, res) => {
   Student.findOne({ _id: req.user }).then((student) => {
     res.render("Student_Info.ejs", { student });
   });
@@ -408,7 +408,7 @@ app.get("/Faculty_Signup", (req, res) => {
   res.render("Faculty_Signup");
 });
 
-app.get("/Student_Login", function (req, res) {
+app.get("/Student_Login", checkNotAuthenticatedStudent, function (req, res) {
   res.render("Student_Home_Login.ejs");
 });
 
@@ -422,13 +422,13 @@ app.get("/Admin_BroadCasts", function (req, res) {
   });
 });
 
-app.get("/Student_BroadCasts", function (req, res) {
+app.get("/Student_BroadCasts", checkAuthenticatedStudent, function (req, res) {
   Broadcast.find({}).then((broadcast) => {
     res.render("Student_Broadcasts.ejs", { broadcast });
   });
 });
 
-app.get("/Faculty_BroadCasts", function (req, res) {
+app.get("/Faculty_BroadCasts", checkAuthenticatedFaculty, function (req, res) {
   Broadcast.find({}).then((broadcast) => {
     git;
     res.render("Faculty_Broadcasts.ejs", { broadcast });
@@ -954,7 +954,6 @@ function checkAuthenticatedFaculty(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
-  ``;
   res.redirect("/Faculty_Login");
 }
 
