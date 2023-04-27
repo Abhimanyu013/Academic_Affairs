@@ -44,9 +44,11 @@
           <% for (var i=0; i<StuSub.length; i++) { %>
             <td style="background-color: #c3e6cb;"><%= StuSub[i].course_Name.name %></td>
             <% for (var i1=0; i1<FacSub.length; i1++) { %>
+             <%   if(StuSub[i].course_Name.name == FacSub[i1].course_Name.name){ %>
                 <td style="background-color: #66806d;"><a href="<%= FacSub[i1].fac_Course_Link%>" target="_blank"><button type="submit" style="background-color: white; color: black; border: none; border-radius: px;">Download</button></a></td>
-          <tr></tr>
+                <%}%>
           <%}%>
+          <tr></tr>
           <%}%>
         </table>
       </div>
