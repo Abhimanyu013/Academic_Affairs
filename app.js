@@ -430,6 +430,7 @@ app.get("/Student_BroadCasts", function (req, res) {
 
 app.get("/Faculty_BroadCasts", function (req, res) {
   Broadcast.find({}).then((broadcast) => {
+    git;
     res.render("Faculty_Broadcasts.ejs", { broadcast });
   });
 });
