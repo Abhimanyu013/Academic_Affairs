@@ -416,7 +416,7 @@ app.get("/", function (req, res) {
   res.render("Main_Lander.ejs");
 });
 
-app.get("/Admin_BroadCasts", function (req, res) {
+app.get("/Admin_Broadcasts", function (req, res) {
   Broadcast.find({}).then((broadcast) => {
     res.render("Admin_Broadcasts.ejs", { broadcast });
   });
