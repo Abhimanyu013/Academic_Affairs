@@ -19,14 +19,17 @@
 				</form>
 				<form action="/Faculty_Forgot_Pswd" method="get">
 					<button type="submit" id ="passchangebutton">Forgot Password</button>
+					<div style="text-align: center; color: red; margin-top: 10%;">
+						<% if(messages.error){ %>
+							<%=messages.error %>
+							<% } %>
+					</div>
 				</form>
 			</div>
 
 
 			
 	</div>
-	<% if(messages.error){ %>
-		<%=messages.error %>
-		<% } %>
+	
 </body>
 </html>
