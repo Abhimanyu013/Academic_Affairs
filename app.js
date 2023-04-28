@@ -282,7 +282,7 @@ app.get("/Faculty_Login", checkNotAuthenticatedFaculty, function (req, res) {
 });
 
 app.get("/Faculty_Home", checkAuthenticatedFaculty, (req, res) => {
-  res.render("Faculty_Home.ejs");
+  res.status(205).render("Faculty_Home.ejs");
 });
 
 app.get("/Faculty_Info", checkAuthenticatedFaculty, (req, res) => {

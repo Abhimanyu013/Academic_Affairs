@@ -30,4 +30,10 @@ describe("http://localhost:3030", () => {
       expect(res).to.have.status(200);
     });
   });
+  describe("GET /Faculty_Home", () => {
+    it("should return a 205 status code", async () => {
+      const res = await chai.request(app).get("/Faculty_Home");
+      expect(res).to.have.status(205);
+    });
+  });
 });
