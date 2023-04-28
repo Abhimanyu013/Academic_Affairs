@@ -1,0 +1,939 @@
+{
+  "id": "a4e4f164-6911-4678-a85f-d27b8c8d60d6",
+  "version": "2.0",
+  "name": "FacultyGUITesting",
+  "url": "https://academic-affairs2.onrender.com/",
+  "tests": [{
+    "id": "f01bebc7-7202-46b2-b342-4cd4018e6c44",
+    "name": "test1",
+    "commands": [{
+      "id": "ec3a1fa8-63d6-4e3e-8773-23961a5a275e",
+      "comment": "",
+      "command": "open",
+      "target": "https://academic-affairs2.onrender.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "547125d5-165b-4695-9ef8-4ec9bbba3d8a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "550x692",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1c4af1d1-bda8-45eb-9210-c86921073e07",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(3) button",
+      "targets": [
+        ["css=.btn:nth-child(3) button", "css:finder"],
+        ["xpath=//div[3]/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Faculty Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "19231509-1eec-4320-ab0c-4606b1850de0",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "16783f43-9e3b-4686-90f3-f918990591f1",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "password"
+    }, {
+      "id": "16b277ad-7a46-4e41-ac76-b39f57c49677",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": "kushshah358@gmail.com"
+    }, {
+      "id": "e09d1447-d7c1-4a80-9630-e5d3262c42cd",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(4)",
+      "targets": [
+        ["css=button:nth-child(4)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8827edf4-45e5-40e8-bbf8-204cfd42e5e2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "45d0faef-a734-4b26-931d-3e113b40afeb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Faculty Details",
+      "targets": [
+        ["linkText=Faculty Details", "linkText"],
+        ["css=li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Faculty Details')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Info')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Faculty Details')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c0c0091-5472-469e-bb5a-b6e6038d383c",
+      "comment": "",
+      "command": "click",
+      "target": "id=passchangebutton",
+      "targets": [
+        ["id=passchangebutton", "id"],
+        ["css=#passchangebutton", "css:finder"],
+        ["xpath=//button[@id='passchangebutton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d10631d-38b8-459d-a4e9-04ff435c4be6",
+      "comment": "",
+      "command": "type",
+      "target": "id=changepassfield",
+      "targets": [
+        ["id=changepassfield", "id"],
+        ["name=password", "name"],
+        ["css=#changepassfield", "css:finder"],
+        ["xpath=//input[@id='changepassfield']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": "password"
+    }, {
+      "id": "938b43e9-4cc3-4381-9496-62430c92b786",
+      "comment": "",
+      "command": "click",
+      "target": "id=passchangebutton",
+      "targets": [
+        ["id=passchangebutton", "id"],
+        ["css=#passchangebutton", "css:finder"],
+        ["xpath=//button[@id='passchangebutton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc934574-be79-4c96-8c24-8d22862c53d4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.hamburger",
+      "targets": [
+        ["css=.hamburger", "css:finder"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cae14b62-bc7f-4fed-a800-a6655fdbe04c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f03bed97-b239-4e61-b7ec-14d61fde97f8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Course Reports",
+      "targets": [
+        ["linkText=Course Reports", "linkText"],
+        ["css=li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Course Reports')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Sub_Info')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Course Reports')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba69ee28-8627-4683-98e6-b3b7a08076d3",
+      "comment": "",
+      "command": "click",
+      "target": "id=Subject",
+      "targets": [
+        ["id=Subject", "id"],
+        ["name=Subject", "name"],
+        ["css=#Subject", "css:finder"],
+        ["xpath=//select[@id='Subject']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "54f9a923-6213-46af-9484-273b59a18237",
+      "comment": "",
+      "command": "select",
+      "target": "id=Subject",
+      "targets": [],
+      "value": "label=C++"
+    }, {
+      "id": "75412b96-9813-4097-8b09-9c52ed6ce24d",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(3)",
+      "targets": [
+        ["css=option:nth-child(3)", "css:finder"],
+        ["xpath=//option[@value='6444f88f4b52849ad0eeade4']", "xpath:attributes"],
+        ["xpath=//select[@id='Subject']/option[3]", "xpath:idRelative"],
+        ["xpath=//option[3]", "xpath:position"],
+        ["xpath=//option[contains(.,' C++')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b186c2aa-5b50-4d02-87dd-699613094902",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Find Course Report')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "01a41989-7b39-4a64-9681-1bb211dfe731",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba61b730-5aea-418c-a55b-9ab65c1f024c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Course Reports",
+      "targets": [
+        ["linkText=Course Reports", "linkText"],
+        ["css=li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Course Reports')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Sub_Info')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Course Reports')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "76b4efbb-140e-4ccf-b3c3-e5895027b0b0",
+      "comment": "",
+      "command": "click",
+      "target": "id=Subject",
+      "targets": [
+        ["id=Subject", "id"],
+        ["name=Subject", "name"],
+        ["css=#Subject", "css:finder"],
+        ["xpath=//select[@id='Subject']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f7a62ae7-6bef-4519-8217-eb0792e983ba",
+      "comment": "",
+      "command": "select",
+      "target": "id=Subject",
+      "targets": [],
+      "value": "label=Data Structures And Algorithms"
+    }, {
+      "id": "7cc17c8b-5a3c-4c00-a8b9-c2a329f9bc1a",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='6444f88f4b52849ad0eeade3']", "xpath:attributes"],
+        ["xpath=//select[@id='Subject']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,' Data Structures And Algorithms')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8044f130-6053-4c60-b159-73a206c04548",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Find Course Report')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cd6470d6-8f8c-44d1-bd7d-331d8a2c7ac8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "06de7fc9-b799-45ef-adb9-4eba93fa0458",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Course Reports",
+      "targets": [
+        ["linkText=Course Reports", "linkText"],
+        ["css=li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Course Reports')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Sub_Info')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Course Reports')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f6bdfef-e39c-4779-9348-ac43be28fde0",
+      "comment": "",
+      "command": "select",
+      "target": "id=Subject",
+      "targets": [],
+      "value": "label=HCI"
+    }, {
+      "id": "815f4269-bf59-4bfb-892c-502ebd2249a1",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(4)",
+      "targets": [
+        ["css=option:nth-child(4)", "css:finder"],
+        ["xpath=//option[@value='6448bf06254eb9324064a669']", "xpath:attributes"],
+        ["xpath=//select[@id='Subject']/option[4]", "xpath:idRelative"],
+        ["xpath=//option[4]", "xpath:position"],
+        ["xpath=//option[contains(.,' HCI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4673e4eb-6f1f-4e34-97df-fa26b3a04564",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Find Course Report')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ad44771-da43-4ca6-a6ed-54c60375ed3c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a978992f-6485-4d29-b5c0-3073e160d9f4",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(4)",
+      "targets": [
+        ["css=li:nth-child(4)", "css:finder"],
+        ["xpath=//li[4]", "xpath:position"],
+        ["xpath=//li[contains(.,'Course Resources')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "42af2901-2fad-436d-aecc-d74fe93b245a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Course Resources",
+      "targets": [
+        ["linkText=Course Resources", "linkText"],
+        ["css=li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Course Resources')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Resources')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Course Resources')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a13cbc6-3d76-4531-90b8-141448eee18b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.table-success:nth-child(3) button",
+      "targets": [
+        ["css=.table-success:nth-child(3) button", "css:finder"],
+        ["xpath=//tr[3]/td[2]/a/button", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win3552",
+      "windowTimeout": 2000
+    }, {
+      "id": "226f1f9a-7ed4-4c94-b10f-8ad552410cc8",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1ceb9958-4ef4-4e00-9cd9-bc6414d436f0",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win3552}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "31aac31c-f6b4-4e80-b73d-88f9c2cb140d",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "386c52f3-7845-496f-95c6-743f86e2e51e",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2b25b5b8-495f-4f7b-b1a9-81f55ef3b5ca",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "26efa83b-16b6-4e51-9925-fd22db3dd822",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Broadcasts",
+      "targets": [
+        ["linkText=Broadcasts", "linkText"],
+        ["css=li:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Broadcasts')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Broadcasts')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Broadcasts')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a90bf52-536d-4388-9abd-5807e24aefba",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "33b876a3-5f7e-46f9-bf3a-2c6c066ca14e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Home')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e16a7ca1-2aa9-40ec-a46d-532fd456bf54",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "97e4fe12-c256-4539-8f8a-a7d83e3e454c",
+    "name": "test2",
+    "commands": [{
+      "id": "3297e293-17ac-4bce-969d-dc49b342cfa6",
+      "comment": "",
+      "command": "open",
+      "target": "https://academic-affairs2.onrender.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "97d8208b-aa2a-43c7-960f-43820587100a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "550x692",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ef23a98a-6b0d-453e-99eb-d5cea4157b80",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(3) button",
+      "targets": [
+        ["css=.btn:nth-child(3) button", "css:finder"],
+        ["xpath=//div[3]/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Faculty Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "073057f7-53d9-45ac-8b9d-b586a39a7361",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c5415ea7-dcf3-406a-a9ec-9cdbae55b3d6",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "password"
+    }, {
+      "id": "4eb28b41-86ec-4819-bd81-ced7379aaa1b",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": "kushshah358@gmail.com"
+    }, {
+      "id": "a31f5be8-555e-4777-b5d8-bdfc2217a6f0",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(4)",
+      "targets": [
+        ["css=button:nth-child(4)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "468ae3b2-915c-4f8d-bb81-d697960c607e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d952d212-71f7-4a48-a84c-3ac9398596c5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Faculty Details",
+      "targets": [
+        ["linkText=Faculty Details", "linkText"],
+        ["css=li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Faculty Details')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Info')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Faculty Details')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "60236e51-590a-4fbe-9c2b-aa1afb967a3e",
+      "comment": "",
+      "command": "click",
+      "target": "id=passchangebutton",
+      "targets": [
+        ["id=passchangebutton", "id"],
+        ["css=#passchangebutton", "css:finder"],
+        ["xpath=//button[@id='passchangebutton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b1bc149-b3a3-45a1-abe2-2bafebdf5a0f",
+      "comment": "",
+      "command": "type",
+      "target": "id=changepassfield",
+      "targets": [
+        ["id=changepassfield", "id"],
+        ["name=password", "name"],
+        ["css=#changepassfield", "css:finder"],
+        ["xpath=//input[@id='changepassfield']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": "password"
+    }, {
+      "id": "55defd29-435e-4cda-a208-d741a3f46e6a",
+      "comment": "",
+      "command": "click",
+      "target": "id=passchangebutton",
+      "targets": [
+        ["id=passchangebutton", "id"],
+        ["css=#passchangebutton", "css:finder"],
+        ["xpath=//button[@id='passchangebutton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "80f56d00-0279-48d6-8d3f-2f8d86832a09",
+      "comment": "",
+      "command": "click",
+      "target": "css=.hamburger",
+      "targets": [
+        ["css=.hamburger", "css:finder"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ce5484e-a358-4a38-8781-c293b2e081d5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b7f1f61a-1d11-4328-85fd-8185945ae06a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Course Reports",
+      "targets": [
+        ["linkText=Course Reports", "linkText"],
+        ["css=li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Course Reports')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Sub_Info')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Course Reports')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "19abda26-714d-4fe2-8338-d64218473773",
+      "comment": "",
+      "command": "click",
+      "target": "id=Subject",
+      "targets": [
+        ["id=Subject", "id"],
+        ["name=Subject", "name"],
+        ["css=#Subject", "css:finder"],
+        ["xpath=//select[@id='Subject']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a81efe51-119d-468c-917a-2d98022a4d4d",
+      "comment": "",
+      "command": "select",
+      "target": "id=Subject",
+      "targets": [],
+      "value": "label=C++"
+    }, {
+      "id": "5a5bbc17-60f4-4eef-add2-730ebe9c8fa5",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(3)",
+      "targets": [
+        ["css=option:nth-child(3)", "css:finder"],
+        ["xpath=//option[@value='6444f88f4b52849ad0eeade4']", "xpath:attributes"],
+        ["xpath=//select[@id='Subject']/option[3]", "xpath:idRelative"],
+        ["xpath=//option[3]", "xpath:position"],
+        ["xpath=//option[contains(.,' C++')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "965253e0-4f7c-4ee8-9e0b-7087ba4485be",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Find Course Report')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ca57a356-18a3-41b8-90d7-921141eba535",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "83b03bca-8146-4667-9a11-bc1c216bcaac",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Course Reports",
+      "targets": [
+        ["linkText=Course Reports", "linkText"],
+        ["css=li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Course Reports')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Sub_Info')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Course Reports')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a0abb9e8-4bb0-43c1-9c59-b42676d78601",
+      "comment": "",
+      "command": "click",
+      "target": "id=Subject",
+      "targets": [
+        ["id=Subject", "id"],
+        ["name=Subject", "name"],
+        ["css=#Subject", "css:finder"],
+        ["xpath=//select[@id='Subject']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "88ba529b-c27f-4ca0-b920-3c748c8f6c33",
+      "comment": "",
+      "command": "select",
+      "target": "id=Subject",
+      "targets": [],
+      "value": "label=Data Structures And Algorithms"
+    }, {
+      "id": "8f1616b0-9a1f-4db9-bde4-458920ab5316",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='6444f88f4b52849ad0eeade3']", "xpath:attributes"],
+        ["xpath=//select[@id='Subject']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,' Data Structures And Algorithms')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "370731bf-2ead-43c8-a53a-db7abed4c35e",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Find Course Report')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4b8c07f2-e8ed-43db-b4ba-b8083304ea8a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5abcd09-e790-45d7-9b66-5590c1cbb09b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Course Reports",
+      "targets": [
+        ["linkText=Course Reports", "linkText"],
+        ["css=li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Course Reports')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Sub_Info')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Course Reports')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "90a8eebd-7b10-4c1e-812f-cee280b14b61",
+      "comment": "",
+      "command": "select",
+      "target": "id=Subject",
+      "targets": [],
+      "value": "label=HCI"
+    }, {
+      "id": "fe3ec8c5-f721-4fd4-b059-10f8cc77a104",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(4)",
+      "targets": [
+        ["css=option:nth-child(4)", "css:finder"],
+        ["xpath=//option[@value='6448bf06254eb9324064a669']", "xpath:attributes"],
+        ["xpath=//select[@id='Subject']/option[4]", "xpath:idRelative"],
+        ["xpath=//option[4]", "xpath:position"],
+        ["xpath=//option[contains(.,' HCI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5da3db49-a3c7-4730-b8c8-1d3dbf7ec45a",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Find Course Report')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f221ca28-86d2-4b78-9dd7-5e59000e877b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a44475c6-2cd5-4554-b470-d957f2c0bf66",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Course Resources",
+      "targets": [
+        ["linkText=Course Resources", "linkText"],
+        ["css=li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Course Resources')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Resources')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Course Resources')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "735c3362-8ad5-4c16-bccd-2da7dcf2d3fa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cdd801fc-5d37-4823-baf3-2f8e0bc84794",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Broadcasts",
+      "targets": [
+        ["linkText=Broadcasts", "linkText"],
+        ["css=li:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Broadcasts')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Broadcasts')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Broadcasts')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "78df6d14-4b81-4c33-8092-d071851a14fe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggler",
+      "targets": [
+        ["css=.toggler", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d6c53a3-66f8-4a9d-8e45-91be76699c35",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Faculty_Home')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "159ef078-3e27-4e6c-8d63-f0fb9c56e7e6",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "8fb3ac5f-f904-40bb-b892-d8fc372b910c",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["f01bebc7-7202-46b2-b342-4cd4018e6c44"]
+  }],
+  "urls": ["https://academic-affairs2.onrender.com/"],
+  "plugins": []
+}
