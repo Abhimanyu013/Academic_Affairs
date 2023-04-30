@@ -57,11 +57,21 @@ app.use(passportStudent.initialize());
 app.use(passportStudent.session());
 const StudentSchema = {
   student_ID: String,
-  name: String,
+  name: {
+    type: String,
+    required: true,
+    minlength: 3,
+    maxlength: 15,
+  },
   gender: String,
   date_Of_Birth: Date,
   email: String,
-  password: String,
+  password: {
+    type: String,
+    required: true,
+    minlength: 8,
+    maxlength: 15,
+  },
 };
 
 const StudentSubSchema = {
@@ -524,7 +534,8 @@ app.post("/Student_Home_Login", (req, res) => {
         bcrypt.hash(randomPass, saltRounds).then((hashedPassword) => {
           Student.findOneAndUpdate(
             { email: student.email },
-            { password: hashedPassword, date_Of_Birth: req.body.DOB }
+            { password: hashedPassword, date_Of_Birth: req.body.DOB },
+            { runValidators: true }
           ).then((x) => {
             var transporter = nodemailer.createTransport({
               host: "smtp.gmail.com",
@@ -555,10 +566,20 @@ app.post("/Student_Home_Login", (req, res) => {
             res.redirect("/Student_Login");
           });
         });
-      } else res.redirect("/Student_Home_Login");
+      } else {
+        res.send(
+          '<script>alert("No such email registered!"); window.location="/Student_Login";</script>'
+        );
+      }
     })
     .catch((err) => {
-      console.log("Error:", err);
+      if (err.name === "ValidationError") {
+        const errors = Object.values(err.errors).map((el) => el.message);
+        return res.render("login", { errors });
+      } else {
+        console.log("Error:", err);
+        res.redirect("/Student_Home_Login");
+      }
     });
 });
 
@@ -616,6 +637,10 @@ app.post("/Faculty_Signup", (req, res) => {
             res.redirect("/Faculty_Login");
           });
         });
+      } else {
+        res.send(
+          '<script>alert("No such email registered!"); window.location="/Faculty_Login";</script>'
+        );
       }
     })
     .catch((err) => {
@@ -750,7 +775,11 @@ app.post("/Forgot_Pswd", function (req, res) {
             res.redirect("/Student_Login");
           });
         });
-      } else res.redirect("/Student_Home_Login");
+      } else {
+        res.send(
+          '<script>alert("No such email registered!"); window.location="/Student_Login";</script>'
+        );
+      }
     })
     .catch((err) => {
       console.log("Error:", err);
@@ -811,7 +840,11 @@ app.post("/Faculty_Forgot_Pswd", function (req, res) {
             res.redirect("/Faculty_Login");
           });
         });
-      } else res.redirect("/");
+      } else {
+        res.send(
+          '<script>alert("No such email registered!"); window.location="/Faculty_Login";</script>'
+        );
+      }
     })
     .catch((err) => {
       console.log("Error:", err);
