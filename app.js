@@ -57,21 +57,11 @@ app.use(passportStudent.initialize());
 app.use(passportStudent.session());
 const StudentSchema = {
   student_ID: String,
-  name: {
-    type: String,
-    required: true,
-    minlength: 3,
-    maxlength: 15,
-  },
+  name: String,
   gender: String,
   date_Of_Birth: Date,
   email: String,
-  password: {
-    type: String,
-    required: true,
-    minlength: 8,
-    maxlength: 15,
-  },
+  password: String,
 };
 
 const StudentSubSchema = {
@@ -534,8 +524,7 @@ app.post("/Student_Home_Login", (req, res) => {
         bcrypt.hash(randomPass, saltRounds).then((hashedPassword) => {
           Student.findOneAndUpdate(
             { email: student.email },
-            { password: hashedPassword, date_Of_Birth: req.body.DOB },
-            { runValidators: true }
+            { password: hashedPassword, date_Of_Birth: req.body.DOB }
           ).then((x) => {
             var transporter = nodemailer.createTransport({
               host: "smtp.gmail.com",
